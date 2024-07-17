@@ -181,3 +181,44 @@ C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\PBarc
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.application
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.pdb
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.pdb
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.xml
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csprojResolveAssemblyReference.cache
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.ADMINISTRATOR.LINQ.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.INQUIRY.scanner.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.loader.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.logon.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main2.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.arrangePartsAssignment.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.feeder_parts_assign2.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelErrors.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelFormatGuide.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_enterModel.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_TransferToHistory.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederLocation.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederMarkings.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_lineMachineTable.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_model.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.Properties.Resources.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testChild.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testParent.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TEST.testImportExcelAndExtract.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2_status.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.errorLogs.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode_multi.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.transTable.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.uploadedText.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.verifyParts.resources
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
