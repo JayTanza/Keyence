@@ -232,6 +232,7 @@ namespace keyencePartsVerifier.TRANSACTION
 
         private void _columnHeader()        
         {
+            //commit 6
             if (data.DataSource != null)
             {
                 if (r_all.Checked)
