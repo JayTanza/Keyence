@@ -222,3 +222,6 @@ C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
 C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence2\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence2\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence2\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
