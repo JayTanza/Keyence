@@ -232,6 +232,8 @@ namespace keyencePartsVerifier.TRANSACTION
 
         private void _columnHeader()        
         {
+            //sup from keyence2
+            //Hello the Keyence
             //Hello The Keyence2
             //Hello From Keyence
             //Hi From Keyence2
