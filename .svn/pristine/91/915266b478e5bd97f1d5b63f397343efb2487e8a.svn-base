@@ -1,0 +1,245 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class uploadExcel : Form
+    {
+        public uploadExcel()
+        {
+            InitializeComponent();
+        }
+        DataTable dt_errors;
+        int iError = 0;
+        int iProcess = 1;
+        private void btn_browse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Filter = "Excel File (*.xls)|*.xlsx|CSV File (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                try
+                {
+                    string exFilenm = openFileDialog.FileName;
+                    String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
+                                "" + exFilenm + "" +
+                                ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+                    OleDbConnection con = new OleDbConnection(constr);
+                    con.Open();//-----OPen Connnection
+                    DataTable Sheets = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                    DataTable dt = new DataTable();
+                    foreach (DataRow dr in Sheets.Rows)
+                    {
+                        string sht = dr[2].ToString();
+                        OleDbCommand OleCmd = new OleDbCommand("SELECT DISTINCT line, machine, table, model, location, LR, PL, parts FROM [" + sht + "] ", con);
+                        OleDbDataAdapter sda = new OleDbDataAdapter(OleCmd);
+
+                        sda.Fill(dt);
+
+                    }
+                    con.Close();//-----Close Connection
+                    data.DataSource = dt;
+
+                    MessageBox.Show("Excel File imported! Please upload the data!", "Data Imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Maybe excel file document is open or used by another application!\nOr\nExcel file is invalid, see excel format guide.\nAnd please try again!", "Error occured while importing data.", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+               
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            txt_status.Text = data.Rows.Count.ToString() + " row(s) found!";
+        }
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                if (data.Columns.Count >= 8)
+                {
+                    //MessageBox.Show("Okay to insert!", "Okay kaayu!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    iProcess = 1;
+                    data.RowStateChanged -= data_RowStateChanged;
+                    toolStripProgressBar1.Visible = true;
+                    if (!backgroundWorker1.IsBusy)
+                    {
+                        backgroundWorker1.RunWorkerAsync(500);
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Excel File! \nPlease select valid Parts Assignment - Excel File!", "Invalid Excel File!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data to upload! Please browse valid excel file!", "No Rows Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void btn_seeExcelFormat_Click(object sender, EventArgs e)
+        {
+            new uploadExcelFormatGuide().ShowDialog();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                _dt_Errors();
+                for (int i = 0; data.Rows.Count > i; i++)
+                {
+                    System.Threading.Thread.Sleep(100);
+                    data.Rows[i].Selected = true;
+                    backgroundWorker1.ReportProgress(i);
+                    string line = data.Rows[i].Cells["line"].Value.ToString().Trim();
+                    string machine = data.Rows[i].Cells["machine"].Value.ToString().Trim();
+                    string table = data.Rows[i].Cells["table"].Value.ToString().Trim();
+                    string model = data.Rows[i].Cells["model"].Value.ToString().Trim();
+                    string location = data.Rows[i].Cells["location"].Value.ToString().Trim();
+                    string LR = data.Rows[i].Cells["LR"].Value.ToString().Trim();
+                    string PL = data.Rows[i].Cells["PL"].Value.ToString().Trim();
+                    string parts = data.Rows[i].Cells["parts"].Value.ToString().Trim();
+
+                    if (iProcess == 1)
+                    {
+                        if (string.IsNullOrEmpty(line))
+                        {
+                            _addErrorLog("Row " + (i+1).ToString().Trim(), "No Line name!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(machine))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No Machine name!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(table))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No Table name!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(model))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No model name!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(location))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No Location!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(LR))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No Location Left/Right!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                        if (string.IsNullOrEmpty(parts))
+                        {
+                            _addErrorLog("Row " + (i + 1).ToString().Trim(), "No parts name!");
+                            data.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                            iError++;
+                        }
+                    }
+                    else if (iProcess == 2)
+                    {
+                        transDataContext context = new transDataContext();
+                        var tbl = context.tbl_web2_maintenances.Where(m => m.lineName == line && m.machineName == machine && m.modelName == model && m.partsName == parts && m.tableName == table).ToList();
+                        if()
+                    }
+                }
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            int maxRows = data.Rows.Count;
+            toolStripProgressBar1.Maximum = maxRows;
+            toolStripProgressBar1.Minimum = 0;
+            if (iProcess == 1)
+            {
+                toolStripProgressBar1.Value = e.ProgressPercentage;
+                txt_status.Text = "Checking "+e.ProgressPercentage.ToString()+" of "+maxRows.ToString()+". . .";
+            }
+            else if (iProcess == 2)
+            {
+                toolStripProgressBar1.Value = e.ProgressPercentage;
+                txt_status.Text = "Uploading " + e.ProgressPercentage.ToString() + " of " + maxRows.ToString() + ". . .";
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (iProcess == 1)
+            {
+                if(iError>0)
+                {
+                    btn_seeErrors.Enabled = true;
+                    btn_seeErrors.Text = "See Errors ("+iError.ToString()+")";
+                    MessageBox.Show("There are errors occured! Click (See Error) button for details!", "Errors found while checking!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    iProcess = 2;
+                    backgroundWorker1.RunWorkerAsync(500);
+                }
+            }
+            else if(iProcess==2)
+            {
+                MessageBox.Show("Parts Assignment was uploaded successfully!", "Upload Complete!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+        private void _dt_Errors()
+        {
+            btn_seeErrors.Enabled = false;
+            btn_seeErrors.Text = "See Errors";
+            iError = 0;
+            dt_errors = new DataTable();
+            dt_errors.Columns.Add("RowNumber");
+            dt_errors.Columns.Add("ErrorMessage");
+        }
+        private void _addErrorLog(string lineNo, string errorMessage)
+        {
+            dt_errors.Rows.Add(lineNo, errorMessage);
+        }
+
+        private void btn_seeErrors_Click(object sender, EventArgs e)
+        {
+            new uploadExcelErrors(dt_errors).ShowDialog();
+        }
+
+        private void uploadExcel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            backgroundWorker1.CancelAsync();
+        }
+    }
+}

@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking : Form
+    {
+        public actualChecking()
+        {
+            InitializeComponent();
+        }
+        private transDataContext context = new transDataContext();
+        bool isLoaded = false;
+        private void actualChecking_Load(object sender, EventArgs e)
+        {
+            
+            //_loadTransaction();
+            _loadModel();
+            _loadLines();
+            _loadTable();
+            _loadMachine();
+            _loadType();
+
+
+
+            _loadAllData();
+        }
+        private void _loadTransaction()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z).OrderBy(m => m.transID);
+            data.DataSource = tbl;
+        }
+        private void _loadModel()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.modelName.Trim()).Distinct().ToList();
+            cb_model.DataSource = tbl;
+        }
+        private void _loadLines()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.lineName.Trim()).Distinct().ToList();
+            cb_line.DataSource = tbl;
+        }
+        private void _loadTable()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.tableName.Trim()).Distinct().ToList();
+            cb_table.DataSource = tbl;
+        }
+        private void _loadMachine()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.machineName.Trim()).Distinct().ToList();
+            cb_machine.DataSource = tbl;
+        }
+        private void _loadType()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.type.Trim()).Distinct().ToList();
+            
+            cb_type.DataSource = tbl;
+            isLoaded = true;
+        }
+        private void _filterData(object sender1, EventArgs e1)
+        {
+            if (isLoaded)
+            {
+                var tbl = (from z in context.tbl_web2_transactions
+                           join x in context.tbl_web2_employees on z.inspector equals x.emp_id
+                           where z.lineName.Contains(cb_line.Text) &z.machineName.Contains(cb_machine.Text.Trim()) & z.tableName.Contains(cb_table.Text.Trim()) & z.modelName.Contains(cb_model.Text.Trim()) & z.type == cb_type.Text
+                           select new { z.transID, z.lineName, z.machineName, z.tableName, z.modelName, z.feederLocation, z.partsName, z.inspector, x.emp_name,z.type, z.remarks, z.dt_trans}
+                           //select z, x
+                );
+                data.DataSource = tbl;
+
+                _columnHeader();
+            }
+        }
+        private void _loadAllData()
+        {
+            var tbl = (from z in context.tbl_web2_transactions
+                       join x in context.tbl_web2_employees on z.inspector equals x.emp_id
+                       select new { z.transID, z.lineName, z.machineName, z.tableName, z.modelName, z.feederLocation, z.partsName, z.inspector, x.emp_name, z.type, z.remarks, z.dt_trans }
+            );
+            data.DataSource = tbl;
+            _columnHeader();
+        }
+        private void _columnHeader()
+        {
+            if (data.DataSource != null)
+            {
+                if (r_all.Checked)
+                {
+                    data.Columns["transID"].Visible = false;
+                    data.Columns["lineName"].Visible = true;
+                    data.Columns["lineName"].HeaderText = "Line Name";
+                    data.Columns["tableName"].Visible=true;
+                    data.Columns["tableName"].HeaderText = "Table";
+                    data.Columns["machineName"].Visible = true;
+                    data.Columns["machineName"].HeaderText = "Machine";
+                    data.Columns["modelName"].Visible = true;
+                    data.Columns["modelName"].HeaderText = "Model";
+                    data.Columns["inspector"].Visible = false;
+                    data.Columns["emp_name"].HeaderText = "Inspector";
+                    data.Columns["feederLocation"].HeaderText = "Feeder Location";
+                    data.Columns["partsName"].HeaderText = "Parts (RINKS)";
+                    data.Columns["remarks"].HeaderText = "Remarks";
+                    data.Columns["dt_trans"].HeaderText = "Date & Time";
+                    data.Columns["type"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    data.Columns["dt_trans"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+                if (r_filter.Checked)
+                {
+                    data.Columns["transID"].Visible = false;
+                    data.Columns["lineName"].Visible = false;
+                    data.Columns["tableName"].Visible = false;
+                    data.Columns["machineName"].Visible = false;
+                    data.Columns["modelName"].Visible = false;
+                    data.Columns["inspector"].Visible = false;
+                    data.Columns["type"].HeaderText = "Scan Type";
+                    data.Columns["feederLocation"].HeaderText = "Feeder Location";
+                    data.Columns["partsName"].HeaderText = "Parts (RINKS)";
+                    data.Columns["remarks"].HeaderText = "Remarks";
+                    data.Columns["emp_name"].HeaderText = "Inspector";
+                    data.Columns["dt_trans"].HeaderText = "Date & Time";
+                    data.Columns["type"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    data.Columns["dt_trans"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+            }
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+                txt_status.Text = data.Rows.Count.ToString() + " row(s) found!";
+        }
+
+        private void btn_filter_Click(object sender, EventArgs e)
+        {
+            r_filter.Checked = true;
+        }
+
+        private void r_filter_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_filter.Enabled = r_filter.Checked == true ? true : false;
+            if (r_filter.Checked)
+            {
+                _filterData(sender,e);
+            }
+        }
+
+        private void r_all_CheckedChanged(object sender, EventArgs e)
+        {
+            gb_all.Enabled = r_all.Checked == true ? true : false;
+            if (r_all.Checked)
+            {
+                _loadAllData();
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            _loadAllData();
+        }
+    }
+}

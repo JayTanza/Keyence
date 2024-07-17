@@ -1,0 +1,171 @@
+﻿namespace keyencePartsVerifier.TRANSACTION
+{
+    partial class actualChecking_byTables2_status
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(actualChecking_byTables2_status));
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_title = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 51);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(627, 487);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.lbl_title);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(627, 51);
+            this.panel1.TabIndex = 1;
+            // 
+            // lbl_title
+            // 
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.Font = new System.Drawing.Font("Segoe UI Light", 15F);
+            this.lbl_title.Location = new System.Drawing.Point(7, 7);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(61, 28);
+            this.lbl_title.TabIndex = 0;
+            this.lbl_title.Text = "label1";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.btn_close);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 538);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(627, 40);
+            this.panel2.TabIndex = 2;
+            // 
+            // btn_close
+            // 
+            this.btn_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btn_close.Location = new System.Drawing.Point(542, 4);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(75, 29);
+            this.btn_close.TabIndex = 0;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Teal;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 2F);
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(627, 4);
+            this.textBox1.TabIndex = 54;
+            this.textBox1.TabStop = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Teal;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI Light", 2F);
+            this.textBox2.Location = new System.Drawing.Point(0, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(627, 4);
+            this.textBox2.TabIndex = 54;
+            this.textBox2.TabStop = false;
+            // 
+            // actualChecking_byTables2_status
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CancelButton = this.btn_close;
+            this.ClientSize = new System.Drawing.Size(627, 578);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 16F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "actualChecking_byTables2_status";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Line - Machine - Table";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.actualChecking_byTables2_status_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbl_title;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+    }
+}

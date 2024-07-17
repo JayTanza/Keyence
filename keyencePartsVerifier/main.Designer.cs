@@ -1,0 +1,750 @@
+﻿namespace keyencePartsVerifier
+{
+    partial class main
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.verifyPartsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.keyenceTransactionTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.printBarcodeModelToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeLineMachineTableToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcideFeederLocationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeAnyValueToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inquiryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barcodeScannerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lINQStudiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.actualCheckingProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.monthlyRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yearlyRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.errorLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.uploadedTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.uploadPartsAssignmentExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.partsAssignmentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.userSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.barcodeScannerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.arragePartsFeederAssignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportPartsAssignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_maitenance = new System.Windows.Forms.Button();
+            this.btn_barcode = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txt_DT = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txt_user = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txt_name = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cms_barcode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.printBarcodeModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeLineMachineTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeFeederLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printBarcodeAnyValueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cms_maintenance = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.uploadFeederAssignmentExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.cms_barcode.SuspendLayout();
+            this.cms_maintenance.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem,
+            this.transactionToolStripMenuItem,
+            this.inquiryToolStripMenuItem,
+            this.maintenanceToolStripMenuItem,
+            this.reportToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 2);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(910, 29);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(63, 25);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // transactionToolStripMenuItem
+            // 
+            this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.printBarcodeToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.verifyPartsToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.keyenceTransactionTableToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.printBarcodeModelToolStripMenuItem1,
+            this.printBarcodeLineMachineTableToolStripMenuItem1,
+            this.printBarcideFeederLocationsToolStripMenuItem,
+            this.printBarcodeAnyValueToolStripMenuItem1,
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem});
+            this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(112, 25);
+            this.transactionToolStripMenuItem.Text = "&Print Barcode";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(323, 26);
+            this.toolStripMenuItem1.Text = "&Print Barcode - MultiValues";
+            this.toolStripMenuItem1.Visible = false;
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // printBarcodeToolStripMenuItem
+            // 
+            this.printBarcodeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printBarcodeToolStripMenuItem.Image")));
+            this.printBarcodeToolStripMenuItem.Name = "printBarcodeToolStripMenuItem";
+            this.printBarcodeToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.printBarcodeToolStripMenuItem.Text = "&Print Barcode";
+            this.printBarcodeToolStripMenuItem.Visible = false;
+            this.printBarcodeToolStripMenuItem.Click += new System.EventHandler(this.printBarcodeToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(320, 6);
+            this.toolStripSeparator2.Visible = false;
+            // 
+            // verifyPartsToolStripMenuItem
+            // 
+            this.verifyPartsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("verifyPartsToolStripMenuItem.Image")));
+            this.verifyPartsToolStripMenuItem.Name = "verifyPartsToolStripMenuItem";
+            this.verifyPartsToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.verifyPartsToolStripMenuItem.Text = "Verify Parts";
+            this.verifyPartsToolStripMenuItem.Visible = false;
+            this.verifyPartsToolStripMenuItem.Click += new System.EventHandler(this.verifyPartsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(320, 6);
+            this.toolStripSeparator3.Visible = false;
+            // 
+            // keyenceTransactionTableToolStripMenuItem
+            // 
+            this.keyenceTransactionTableToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("keyenceTransactionTableToolStripMenuItem.Image")));
+            this.keyenceTransactionTableToolStripMenuItem.Name = "keyenceTransactionTableToolStripMenuItem";
+            this.keyenceTransactionTableToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.keyenceTransactionTableToolStripMenuItem.Text = "&Keyence Transaction table";
+            this.keyenceTransactionTableToolStripMenuItem.Visible = false;
+            this.keyenceTransactionTableToolStripMenuItem.Click += new System.EventHandler(this.keyenceTransactionTableToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(320, 6);
+            // 
+            // printBarcodeModelToolStripMenuItem1
+            // 
+            this.printBarcodeModelToolStripMenuItem1.Name = "printBarcodeModelToolStripMenuItem1";
+            this.printBarcodeModelToolStripMenuItem1.Size = new System.Drawing.Size(323, 26);
+            this.printBarcodeModelToolStripMenuItem1.Text = "Print Barcode - Model";
+            this.printBarcodeModelToolStripMenuItem1.Click += new System.EventHandler(this.printBarcodeModelToolStripMenuItem1_Click);
+            // 
+            // printBarcodeLineMachineTableToolStripMenuItem1
+            // 
+            this.printBarcodeLineMachineTableToolStripMenuItem1.Name = "printBarcodeLineMachineTableToolStripMenuItem1";
+            this.printBarcodeLineMachineTableToolStripMenuItem1.Size = new System.Drawing.Size(323, 26);
+            this.printBarcodeLineMachineTableToolStripMenuItem1.Text = "Print Barcode - LineMachineTable";
+            this.printBarcodeLineMachineTableToolStripMenuItem1.Click += new System.EventHandler(this.printBarcodeLineMachineTableToolStripMenuItem1_Click);
+            // 
+            // printBarcideFeederLocationsToolStripMenuItem
+            // 
+            this.printBarcideFeederLocationsToolStripMenuItem.Name = "printBarcideFeederLocationsToolStripMenuItem";
+            this.printBarcideFeederLocationsToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.printBarcideFeederLocationsToolStripMenuItem.Text = "Print Barcode - Feeder Locations";
+            this.printBarcideFeederLocationsToolStripMenuItem.Click += new System.EventHandler(this.printBarcideFeederLocationsToolStripMenuItem_Click);
+            // 
+            // printBarcodeAnyValueToolStripMenuItem1
+            // 
+            this.printBarcodeAnyValueToolStripMenuItem1.Name = "printBarcodeAnyValueToolStripMenuItem1";
+            this.printBarcodeAnyValueToolStripMenuItem1.Size = new System.Drawing.Size(323, 26);
+            this.printBarcodeAnyValueToolStripMenuItem1.Text = "Print Barcode - Any Value";
+            this.printBarcodeAnyValueToolStripMenuItem1.Click += new System.EventHandler(this.printBarcodeAnyValueToolStripMenuItem1_Click);
+            // 
+            // printDataMatrixForFeederMarkingsToolStripMenuItem
+            // 
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem.Name = "printDataMatrixForFeederMarkingsToolStripMenuItem";
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem.Text = "Print DataMatrix for Feeder Markings";
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem.Visible = false;
+            this.printDataMatrixForFeederMarkingsToolStripMenuItem.Click += new System.EventHandler(this.printDataMatrixForFeederMarkingsToolStripMenuItem_Click);
+            // 
+            // inquiryToolStripMenuItem
+            // 
+            this.inquiryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.barcodeScannerToolStripMenuItem,
+            this.lINQStudiesToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.actualCheckingProgressToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator9,
+            this.monthlyRecordToolStripMenuItem,
+            this.yearlyRecordToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.errorLogsToolStripMenuItem,
+            this.toolStripSeparator12,
+            this.uploadedTextToolStripMenuItem});
+            this.inquiryToolStripMenuItem.Name = "inquiryToolStripMenuItem";
+            this.inquiryToolStripMenuItem.Size = new System.Drawing.Size(97, 25);
+            this.inquiryToolStripMenuItem.Text = "&Transaction";
+            // 
+            // barcodeScannerToolStripMenuItem
+            // 
+            this.barcodeScannerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("barcodeScannerToolStripMenuItem.Image")));
+            this.barcodeScannerToolStripMenuItem.Name = "barcodeScannerToolStripMenuItem";
+            this.barcodeScannerToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.barcodeScannerToolStripMenuItem.Text = "&Barcode Scanner";
+            this.barcodeScannerToolStripMenuItem.Visible = false;
+            this.barcodeScannerToolStripMenuItem.Click += new System.EventHandler(this.barcodeScannerToolStripMenuItem_Click);
+            // 
+            // lINQStudiesToolStripMenuItem
+            // 
+            this.lINQStudiesToolStripMenuItem.Name = "lINQStudiesToolStripMenuItem";
+            this.lINQStudiesToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.lINQStudiesToolStripMenuItem.Text = "LINQ Studies";
+            this.lINQStudiesToolStripMenuItem.Visible = false;
+            this.lINQStudiesToolStripMenuItem.Click += new System.EventHandler(this.lINQStudiesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(252, 6);
+            // 
+            // actualCheckingProgressToolStripMenuItem
+            // 
+            this.actualCheckingProgressToolStripMenuItem.Name = "actualCheckingProgressToolStripMenuItem";
+            this.actualCheckingProgressToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.actualCheckingProgressToolStripMenuItem.Text = "Actual Checking Progress";
+            this.actualCheckingProgressToolStripMenuItem.Click += new System.EventHandler(this.actualCheckingProgressToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(255, 26);
+            this.toolStripMenuItem2.Text = "Actual Checking - By table";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(252, 6);
+            // 
+            // monthlyRecordToolStripMenuItem
+            // 
+            this.monthlyRecordToolStripMenuItem.Name = "monthlyRecordToolStripMenuItem";
+            this.monthlyRecordToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.monthlyRecordToolStripMenuItem.Text = "Monthly Record";
+            this.monthlyRecordToolStripMenuItem.Visible = false;
+            // 
+            // yearlyRecordToolStripMenuItem
+            // 
+            this.yearlyRecordToolStripMenuItem.Name = "yearlyRecordToolStripMenuItem";
+            this.yearlyRecordToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.yearlyRecordToolStripMenuItem.Text = "Yearly Record";
+            this.yearlyRecordToolStripMenuItem.Visible = false;
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(252, 6);
+            this.toolStripSeparator5.Visible = false;
+            // 
+            // errorLogsToolStripMenuItem
+            // 
+            this.errorLogsToolStripMenuItem.Name = "errorLogsToolStripMenuItem";
+            this.errorLogsToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.errorLogsToolStripMenuItem.Text = "Error Logs";
+            this.errorLogsToolStripMenuItem.Visible = false;
+            this.errorLogsToolStripMenuItem.Click += new System.EventHandler(this.errorLogsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(252, 6);
+            this.toolStripSeparator12.Visible = false;
+            // 
+            // uploadedTextToolStripMenuItem
+            // 
+            this.uploadedTextToolStripMenuItem.Name = "uploadedTextToolStripMenuItem";
+            this.uploadedTextToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.uploadedTextToolStripMenuItem.Text = "Uploaded Text";
+            this.uploadedTextToolStripMenuItem.Click += new System.EventHandler(this.uploadedTextToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.uploadPartsAssignmentExcelToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.partsAssignmentListToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.userSetupToolStripMenuItem,
+            this.toolStripSeparator10,
+            this.barcodeScannerToolStripMenuItem1,
+            this.toolStripSeparator11,
+            this.arragePartsFeederAssignmentToolStripMenuItem});
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(109, 25);
+            this.maintenanceToolStripMenuItem.Text = "&Maintenance";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(291, 6);
+            this.toolStripSeparator1.Visible = false;
+            // 
+            // uploadPartsAssignmentExcelToolStripMenuItem
+            // 
+            this.uploadPartsAssignmentExcelToolStripMenuItem.Name = "uploadPartsAssignmentExcelToolStripMenuItem";
+            this.uploadPartsAssignmentExcelToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.uploadPartsAssignmentExcelToolStripMenuItem.Text = "Upload Parts Assignment - Excel";
+            this.uploadPartsAssignmentExcelToolStripMenuItem.Click += new System.EventHandler(this.uploadPartsAssignmentExcelToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(291, 6);
+            // 
+            // partsAssignmentListToolStripMenuItem
+            // 
+            this.partsAssignmentListToolStripMenuItem.Name = "partsAssignmentListToolStripMenuItem";
+            this.partsAssignmentListToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.partsAssignmentListToolStripMenuItem.Text = "Feeder && Parts Assignment - List";
+            this.partsAssignmentListToolStripMenuItem.Click += new System.EventHandler(this.partsAssignmentListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(291, 6);
+            // 
+            // userSetupToolStripMenuItem
+            // 
+            this.userSetupToolStripMenuItem.Name = "userSetupToolStripMenuItem";
+            this.userSetupToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.userSetupToolStripMenuItem.Text = "User Setup";
+            this.userSetupToolStripMenuItem.Click += new System.EventHandler(this.userSetupToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(291, 6);
+            // 
+            // barcodeScannerToolStripMenuItem1
+            // 
+            this.barcodeScannerToolStripMenuItem1.Name = "barcodeScannerToolStripMenuItem1";
+            this.barcodeScannerToolStripMenuItem1.Size = new System.Drawing.Size(294, 26);
+            this.barcodeScannerToolStripMenuItem1.Text = "Barcode Scanner";
+            this.barcodeScannerToolStripMenuItem1.Click += new System.EventHandler(this.barcodeScannerToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(291, 6);
+            // 
+            // arragePartsFeederAssignmentToolStripMenuItem
+            // 
+            this.arragePartsFeederAssignmentToolStripMenuItem.Name = "arragePartsFeederAssignmentToolStripMenuItem";
+            this.arragePartsFeederAssignmentToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
+            this.arragePartsFeederAssignmentToolStripMenuItem.Text = "Feeder && Parts Arrangement";
+            this.arragePartsFeederAssignmentToolStripMenuItem.Visible = false;
+            this.arragePartsFeederAssignmentToolStripMenuItem.Click += new System.EventHandler(this.arragePartsFeederAssignmentToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportPartsAssignmentToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
+            this.reportToolStripMenuItem.Text = "&Report";
+            // 
+            // reportPartsAssignmentToolStripMenuItem
+            // 
+            this.reportPartsAssignmentToolStripMenuItem.Name = "reportPartsAssignmentToolStripMenuItem";
+            this.reportPartsAssignmentToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+            this.reportPartsAssignmentToolStripMenuItem.Text = "Report - Parts Assignment";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Teal;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 1F);
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(910, 2);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_maitenance);
+            this.panel1.Controls.Add(this.btn_barcode);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(910, 61);
+            this.panel1.TabIndex = 3;
+            this.panel1.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(118, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 50);
+            this.button1.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.button1, "Parts Verification");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btn_maitenance
+            // 
+            this.btn_maitenance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_maitenance.BackgroundImage")));
+            this.btn_maitenance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_maitenance.FlatAppearance.BorderSize = 0;
+            this.btn_maitenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btn_maitenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_maitenance.Location = new System.Drawing.Point(62, 4);
+            this.btn_maitenance.Name = "btn_maitenance";
+            this.btn_maitenance.Size = new System.Drawing.Size(50, 50);
+            this.btn_maitenance.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btn_maitenance, "Barcode Maintenance");
+            this.btn_maitenance.UseVisualStyleBackColor = true;
+            // 
+            // btn_barcode
+            // 
+            this.btn_barcode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_barcode.BackgroundImage")));
+            this.btn_barcode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_barcode.FlatAppearance.BorderSize = 0;
+            this.btn_barcode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btn_barcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_barcode.Location = new System.Drawing.Point(6, 4);
+            this.btn_barcode.Name = "btn_barcode";
+            this.btn_barcode.Size = new System.Drawing.Size(50, 50);
+            this.btn_barcode.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btn_barcode, "Print Barcode");
+            this.btn_barcode.UseVisualStyleBackColor = true;
+            this.btn_barcode.Click += new System.EventHandler(this.btn_barcode_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.DarkCyan;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.txt_DT,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3,
+            this.txt_user,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel5,
+            this.txt_name,
+            this.toolStripStatusLabel6,
+            this.lblVersion});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 653);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(910, 26);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(97, 21);
+            this.toolStripStatusLabel1.Text = "Date && Time:";
+            // 
+            // txt_DT
+            // 
+            this.txt_DT.ForeColor = System.Drawing.Color.White;
+            this.txt_DT.Name = "txt_DT";
+            this.txt_DT.Size = new System.Drawing.Size(48, 21);
+            this.txt_DT.Text = "Today";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(30, 21);
+            this.toolStripStatusLabel2.Text = "  |  ";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(48, 21);
+            this.toolStripStatusLabel3.Text = "User: ";
+            // 
+            // txt_user
+            // 
+            this.txt_user.ForeColor = System.Drawing.Color.White;
+            this.txt_user.Name = "txt_user";
+            this.txt_user.Size = new System.Drawing.Size(19, 21);
+            this.txt_user.Text = "X";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(22, 21);
+            this.toolStripStatusLabel4.Text = " | ";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(54, 21);
+            this.toolStripStatusLabel5.Text = "Name:";
+            // 
+            // txt_name
+            // 
+            this.txt_name.ForeColor = System.Drawing.Color.White;
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(19, 21);
+            this.txt_name.Text = "X";
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(558, 21);
+            this.toolStripStatusLabel6.Spring = true;
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(0, 21);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ShowAlways = true;
+            // 
+            // cms_barcode
+            // 
+            this.cms_barcode.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.cms_barcode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printBarcodeModelToolStripMenuItem,
+            this.printBarcodeLineMachineTableToolStripMenuItem,
+            this.printBarcodeFeederLocationToolStripMenuItem,
+            this.printBarcodeAnyValueToolStripMenuItem});
+            this.cms_barcode.Name = "cms_barcode";
+            this.cms_barcode.Size = new System.Drawing.Size(302, 108);
+            // 
+            // printBarcodeModelToolStripMenuItem
+            // 
+            this.printBarcodeModelToolStripMenuItem.Name = "printBarcodeModelToolStripMenuItem";
+            this.printBarcodeModelToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.printBarcodeModelToolStripMenuItem.Text = "Print barcode - Model";
+            // 
+            // printBarcodeLineMachineTableToolStripMenuItem
+            // 
+            this.printBarcodeLineMachineTableToolStripMenuItem.Name = "printBarcodeLineMachineTableToolStripMenuItem";
+            this.printBarcodeLineMachineTableToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.printBarcodeLineMachineTableToolStripMenuItem.Text = "Print barcode - LineMachineTable";
+            // 
+            // printBarcodeFeederLocationToolStripMenuItem
+            // 
+            this.printBarcodeFeederLocationToolStripMenuItem.Name = "printBarcodeFeederLocationToolStripMenuItem";
+            this.printBarcodeFeederLocationToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.printBarcodeFeederLocationToolStripMenuItem.Text = "Print barcode - Feeder Location";
+            // 
+            // printBarcodeAnyValueToolStripMenuItem
+            // 
+            this.printBarcodeAnyValueToolStripMenuItem.Name = "printBarcodeAnyValueToolStripMenuItem";
+            this.printBarcodeAnyValueToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.printBarcodeAnyValueToolStripMenuItem.Text = "Print barcode - Any value";
+            // 
+            // cms_maintenance
+            // 
+            this.cms_maintenance.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.cms_maintenance.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadFeederAssignmentExcelToolStripMenuItem});
+            this.cms_maintenance.Name = "cms_barcode";
+            this.cms_maintenance.Size = new System.Drawing.Size(303, 30);
+            // 
+            // uploadFeederAssignmentExcelToolStripMenuItem
+            // 
+            this.uploadFeederAssignmentExcelToolStripMenuItem.Name = "uploadFeederAssignmentExcelToolStripMenuItem";
+            this.uploadFeederAssignmentExcelToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.uploadFeederAssignmentExcelToolStripMenuItem.Text = "Upload Feeder Assignment -Excel";
+            // 
+            // main
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(910, 679);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chipmounter Parts Verifier";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
+            this.Load += new System.EventHandler(this.main_Load);
+            this.Shown += new System.EventHandler(this.main_Shown);
+            this.Resize += new System.EventHandler(this.main_Resize);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.cms_barcode.ResumeLayout(false);
+            this.cms_maintenance.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel txt_DT;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inquiryToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel txt_user;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel txt_name;
+        private System.Windows.Forms.ToolStripMenuItem barcodeScannerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifyPartsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem keyenceTransactionTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lINQStudiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Button btn_barcode;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btn_maitenance;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip cms_barcode;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeLineMachineTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeFeederLocationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeAnyValueToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cms_maintenance;
+        private System.Windows.Forms.ToolStripMenuItem uploadFeederAssignmentExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeModelToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeLineMachineTableToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem printBarcideFeederLocationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printBarcodeAnyValueToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem actualCheckingProgressToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uploadPartsAssignmentExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem partsAssignmentListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem userSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem monthlyRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yearlyRecordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportPartsAssignmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem barcodeScannerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem errorLogsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem arragePartsFeederAssignmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem printDataMatrixForFeederMarkingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem uploadedTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel lblVersion;
+    }
+}

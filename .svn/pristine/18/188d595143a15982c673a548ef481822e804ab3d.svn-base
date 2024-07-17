@@ -1,0 +1,211 @@
+﻿namespace keyencePartsVerifier.MAINTENANCE
+{
+    partial class uploadExcel
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uploadExcel));
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txt_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_seeErrors = new System.Windows.Forms.ToolStripButton();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.data = new System.Windows.Forms.DataGridView();
+            this.btn_browse = new System.Windows.Forms.ToolStripButton();
+            this.btn_upload = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Teal;
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.txt_status,
+            this.toolStripProgressBar1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 575);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(803, 26);
+            this.statusStrip1.TabIndex = 50;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 21);
+            this.toolStripStatusLabel1.Text = "Status:";
+            // 
+            // txt_status
+            // 
+            this.txt_status.ForeColor = System.Drawing.Color.White;
+            this.txt_status.Name = "txt_status";
+            this.txt_status.Size = new System.Drawing.Size(56, 21);
+            this.txt_status.Text = "Ready!";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.DarkCyan;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_browse,
+            this.btn_upload,
+            this.btn_seeErrors});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(1);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(803, 31);
+            this.toolStrip1.TabIndex = 73;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btn_seeErrors
+            // 
+            this.btn_seeErrors.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_seeErrors.Enabled = false;
+            this.btn_seeErrors.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btn_seeErrors.Image = ((System.Drawing.Image)(resources.GetObject("btn_seeErrors.Image")));
+            this.btn_seeErrors.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_seeErrors.Margin = new System.Windows.Forms.Padding(1, 2, 1, 5);
+            this.btn_seeErrors.Name = "btn_seeErrors";
+            this.btn_seeErrors.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.btn_seeErrors.Size = new System.Drawing.Size(91, 24);
+            this.btn_seeErrors.Text = "See Errors";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 20);
+            // 
+            // data
+            // 
+            this.data.AllowUserToAddRows = false;
+            this.data.AllowUserToDeleteRows = false;
+            this.data.AllowUserToResizeRows = false;
+            this.data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.data.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.data.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.data.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.data.ColumnHeadersHeight = 40;
+            this.data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.data.DefaultCellStyle = dataGridViewCellStyle2;
+            this.data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.data.EnableHeadersVisualStyles = false;
+            this.data.Location = new System.Drawing.Point(0, 31);
+            this.data.MultiSelect = false;
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.data.RowTemplate.Height = 30;
+            this.data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.data.Size = new System.Drawing.Size(803, 544);
+            this.data.TabIndex = 74;
+            // 
+            // btn_browse
+            // 
+            this.btn_browse.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_browse.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btn_browse.Image = ((System.Drawing.Image)(resources.GetObject("btn_browse.Image")));
+            this.btn_browse.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_browse.Margin = new System.Windows.Forms.Padding(1, 2, 1, 5);
+            this.btn_browse.Name = "btn_browse";
+            this.btn_browse.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.btn_browse.Size = new System.Drawing.Size(106, 24);
+            this.btn_browse.Text = "Browse Excel";
+            this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
+            // 
+            // btn_upload
+            // 
+            this.btn_upload.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_upload.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btn_upload.Image = ((System.Drawing.Image)(resources.GetObject("btn_upload.Image")));
+            this.btn_upload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_upload.Margin = new System.Windows.Forms.Padding(1, 2, 1, 5);
+            this.btn_upload.Name = "btn_upload";
+            this.btn_upload.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.btn_upload.Size = new System.Drawing.Size(178, 24);
+            this.btn_upload.Text = "Upload Parts Assignment";
+            // 
+            // uploadExcel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(803, 601);
+            this.Controls.Add(this.data);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.statusStrip1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "uploadExcel";
+            this.Text = "Upload Parts Assignment - Excel FIle";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel txt_status;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btn_seeErrors;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.DataGridView data;
+        private System.Windows.Forms.ToolStripButton btn_browse;
+        private System.Windows.Forms.ToolStripButton btn_upload;
+    }
+}

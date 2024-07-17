@@ -1,0 +1,80 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.PRINTBARCODE
+{
+    public partial class printBarcode_feederLocation : Form
+    {
+        public printBarcode_feederLocation()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void chk_feeder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (chk_feeder.Checked)
+                    {
+                        row.Cells["dg_check"].Value = 1;
+                    }
+                    else
+                    {
+                        row.Cells["dg_check"].Value = 0;
+                    }
+                }
+            }
+        }
+
+        private void printBarcode_feederLocation_Load(object sender, EventArgs e)
+        {
+            loadFeederLocations();
+        }
+        private void loadFeederLocations()
+        {
+            SqlCommand cmdS = new SqlCommand("SELECT DISTINCT mnt_id, feederLocation FROM tbl_web2_maintenance order by mnt_id", gclass.con);
+            gclass.con.Open();
+            SqlDataReader dr = cmdS.ExecuteReader();
+            while (dr.Read())
+            {
+                data.Rows.Add(0, dr["feederLocation"].ToString().Trim());
+            }
+            dr.Close();
+            gclass.con.Close();
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void btn_printSelected_Click(object sender, EventArgs e)
+        {
+            bool hasSelected = false;
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["dg_check"].Value) == true)
+                    {
+                        hasSelected = true;
+                        
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No feeder locations found!", "No rows found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

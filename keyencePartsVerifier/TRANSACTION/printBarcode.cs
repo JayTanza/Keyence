@@ -1,0 +1,303 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class printBarcode : Form
+    {
+        public printBarcode()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cb_codeFor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cb_codeFor.SelectedIndex==0)
+            {
+                //product
+                txt_single_value.ReadOnly = false;
+                txt_from.ReadOnly = true;
+                txt_to.ReadOnly = true;
+
+                txt_single_value.Focus();
+            }
+            else if(cb_codeFor.SelectedIndex==1)
+            {
+                //Line
+                txt_single_value.ReadOnly = false;
+                txt_from.ReadOnly = true;
+                txt_to.ReadOnly = true;
+
+                txt_single_value.Focus();
+            }
+            else if(cb_codeFor.SelectedIndex==2)
+            {
+                //table
+                txt_single_value.ReadOnly = false;
+                txt_from.ReadOnly = true;
+                txt_to.ReadOnly = true;
+
+                txt_single_value.Focus();
+            }
+            else if(cb_codeFor.SelectedIndex==3)
+            {
+                //feeder
+                txt_single_value.ReadOnly = true;
+                txt_from.ReadOnly = false;
+                txt_to.ReadOnly = false;
+
+                txt_from.Focus();
+            }
+            else if (cb_codeFor.SelectedIndex == 4)
+            {
+                //rinkscode
+                txt_single_value.ReadOnly = false;
+                txt_from.ReadOnly = true;
+                txt_to.ReadOnly = true;
+
+                txt_single_value.Focus();
+            }
+
+            txt_from.ResetText();
+            txt_single_value.ResetText();
+            txt_to.ResetText();
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                barcode.Reset();
+                for(int i=0;data.Rows.Count>i;i++)
+                {
+                    barcode.QRCode(data.Rows[i].Cells["dg_header"].Value.ToString().Trim(), data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), 4, i);
+                    data.Rows[i].Cells["dg_check"].Value = 1;
+                    data.Rows[i].Selected = true;
+                }
+
+                if (!bw_print.IsBusy)
+                {
+                    bw_print.RunWorkerAsync(500);
+                }
+            }
+        }
+        private void onKeyPress(object sender1, KeyPressEventArgs e1)
+        {
+            //input allow only numbers cannot type letters
+            if ((e1.KeyChar >= 48) && (e1.KeyChar <= 57) || (e1.KeyChar == 8))
+            {
+                return;
+            }
+            e1.Handled = true;
+        }
+        private void txt_from_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onKeyPress(sender,e);
+        }
+
+        private void txt_to_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onKeyPress(sender,e);
+        }
+
+        private void bw_print_DoWork(object sender, DoWorkEventArgs e)
+        {
+            barcode.printBarcode(0);
+        }
+
+        private void bw_print_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
+            txt_status.Text = "Printing. . .Please wait. . .";
+        }
+
+        private void bw_print_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
+            txt_status.Text = "Ready!";
+            MessageBox.Show("Print successful!", "Print!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btn_add2list_Click(object sender, EventArgs e)
+        {
+            if (cb_codeFor.SelectedIndex == 3)
+            {
+                if (string.IsNullOrEmpty(txt_from.Text.Trim()))
+                {
+                    MessageBox.Show("Please enter FROM!(numeric only)", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_from.Focus();
+                    return;
+                }
+
+                if (Convert.ToDecimal(txt_from.Text) <= 0)
+                {
+                    MessageBox.Show("Please enter valid numbers!(whole number only)", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_from.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txt_to.Text.Trim()))
+                {
+                    MessageBox.Show("Please enter TO!(numeric only)", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_to.Focus();
+                    txt_to.Text = (Convert.ToDecimal(txt_from.Text) + 1).ToString();
+                    return;
+                }
+
+                if (Convert.ToDecimal(txt_to.Text) <= 0)
+                {
+                    MessageBox.Show("Please enter valid numbers!(whole number only)", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_to.Focus();
+                    return;
+                }
+
+                if (Convert.ToDecimal(txt_from.Text) > Convert.ToDecimal(txt_to.Text))
+                {
+                    MessageBox.Show("Please enter valid numbers!", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_to.Focus();
+                    txt_to.Text = (Convert.ToDecimal(txt_from.Text) + 1).ToString();
+                    return;
+                }
+
+                //barcode.Reset();
+                int j = Convert.ToInt32(txt_from.Text);
+                int k = Convert.ToInt32(txt_to.Text);
+                for (int i = j; i <= k; i++)
+                {
+                    //barcode.QRCode(cb_codeFor.Text.Trim(), i.ToString(), i.ToString(), 4);
+                    data.Rows.Add(0, i.ToString(), cb_codeFor.Text.Trim());
+                }
+
+                
+            }
+            else if (cb_codeFor.SelectedIndex == 0)
+            {
+                if (string.IsNullOrEmpty(txt_single_value.Text))
+                {
+                    MessageBox.Show("Please enter value", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_single_value.Focus();
+                }
+                else
+                {
+                    if(_searchContent("productName", txt_single_value.Text.Trim())>0)
+                    {
+                        data.Rows.Add(0, txt_single_value.Text.Trim(), cb_codeFor.Text.Trim());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Product name: "+txt_single_value.Text.Trim()+" doesn't exist in feeder assignment!\nPlease verify!", "Product Not found!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                    }
+                }
+            }
+            else if (cb_codeFor.SelectedIndex == 1)
+            {
+                if (string.IsNullOrEmpty(txt_single_value.Text))
+                {
+                    MessageBox.Show("Please enter value", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_single_value.Focus();
+                }
+                else
+                {
+                    if (_searchContent("lineName", txt_single_value.Text.Trim()) > 0)
+                    {
+                        data.Rows.Add(0, txt_single_value.Text.Trim(), cb_codeFor.Text.Trim());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Line: " + txt_single_value.Text.Trim() + " doesn't exist in feeder assignment!\nPlease verify!", "Line Not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else if (cb_codeFor.SelectedIndex == 2)
+            {
+                if (string.IsNullOrEmpty(txt_single_value.Text))
+                {
+                    MessageBox.Show("Please enter value", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_single_value.Focus();
+                }
+                else
+                {
+                    if (_searchContent("tableName", txt_single_value.Text.Trim()) > 0)
+                    {
+                        data.Rows.Add(0, txt_single_value.Text.Trim(), cb_codeFor.Text.Trim());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Table name: " + txt_single_value.Text.Trim() + " doesn't exist in feeder assignment!\nPlease verify!", "Table Not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else if (cb_codeFor.SelectedIndex == 4)
+            {
+                if (string.IsNullOrEmpty(txt_single_value.Text))
+                {
+                    MessageBox.Show("Please enter value", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_single_value.Focus();
+                }
+                else
+                {
+                    if (_searchContent("partsName", txt_single_value.Text.Trim()) > 0)
+                    {
+                        data.Rows.Add(0, txt_single_value.Text.Trim(), cb_codeFor.Text.Trim());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Parts name: " + txt_single_value.Text.Trim() + " doesn't exist in feeder assignment!\nPlease verify!", "Parts Not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select barcode generation for!", "Print Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_codeFor.Focus();
+                return;
+            }
+        }
+        private int _searchContent(string column, string value)
+        {
+            Int32 count = 0;
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT COUNT(*) FROM tbl_web_feeder_parts_assign WHERE "+column+"='"+value+"'", gclass.con);
+                gclass.con.Open();
+                count = (Int32)cmdS.ExecuteScalar();
+                gclass.con.Close();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on searching content! Details: "+ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+
+            return count;
+        }
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void btn_remove_from_list_Click(object sender, EventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                foreach(DataGridViewRow row in data.SelectedRows)
+                {
+                    data.Rows.Remove(row);
+                }
+            }
+        }
+    }
+}

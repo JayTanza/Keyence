@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_parts_assign : Form
+    {
+        public feeder_parts_assign()
+        {
+            InitializeComponent();
+        }
+        DataTable dt;
+        BindingSource bind;
+        private void feeder_parts_assign_Load(object sender, EventArgs e)
+        {
+            _loadFeederPartsMaintenance();
+        }
+        private void _loadFeederPartsMaintenance()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT productName, lineName, tableName, feederName, partsName, datetimeUpdated FROM tbl_web_feeder_parts_assign ORDER BY datetimeUpdated", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                bind = new BindingSource();
+                bind.DataSource = dt;
+                data.DataSource = dt;
+
+                data.Columns["productName"].HeaderText = "Product";
+                data.Columns["lineName"].HeaderText = "Line";
+                data.Columns["tableName"].HeaderText = "Table";
+                data.Columns["feederName"].HeaderText = "Feeder";
+                data.Columns["partsName"].HeaderText = "Parts";
+                data.Columns["datetimeUpdated"].HeaderText = "Date & Time Updated";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on loading feeder and parts maintenance! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            string txt2search = txt_search.Text.Replace("'", "''").Replace("[", "");
+            bind.Filter = "productName like '%" + txt2search + "%' || " +
+                "lineName like '%" + txt2search + "%' || " +
+                "tableName like '%" + txt2search + "%' || " +
+                "feederName like '%" + txt2search + "%' || " +
+                "partsName like '%" + txt2search + "%'";
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            _loadFeederPartsMaintenance();
+            txt_search_TextChanged(sender,e);
+        }
+    }
+}

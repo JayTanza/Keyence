@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class uploadedText : Form
+    {
+        public uploadedText()
+        {
+            InitializeComponent();
+        }
+        transDataContext context = new transDataContext();
+        List<tbl_web2_uploadedText> list;
+        private void uploadedText_Load(object sender, EventArgs e)
+        {
+            list = new List<tbl_web2_uploadedText>(context.tbl_web2_uploadedTexts.ToList());
+
+            foreach (var item in list)
+            {
+                data.Rows.Add(item.uploadID, item.uploadTitle);
+            }
+            splitContainer1.SplitterDistance = 239;
+        }
+
+        private void uploadedText_Resize(object sender, EventArgs e)
+        {
+            splitContainer1.SplitterDistance = 239;
+        }
+    }
+}

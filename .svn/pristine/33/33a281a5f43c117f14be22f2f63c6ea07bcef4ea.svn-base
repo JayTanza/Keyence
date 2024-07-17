@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class main2 : Form
+    {
+        public main2()
+        {
+            InitializeComponent();
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabPage page = tabControl1.TabPages[e.Index];
+            e.Graphics.FillRectangle(new SolidBrush(Color.Teal), e.Bounds);
+
+            Rectangle paddedBounds = e.Bounds;
+            int yOffset = (e.State == DrawItemState.Selected) ? -2 : 1;
+            paddedBounds.Offset(1, yOffset);
+            TextRenderer.DrawText(e.Graphics, page.Text, Font, paddedBounds, Color.White);
+        }
+        private void openNewTab(Form form2pass)
+        {
+            foreach (TabPage tabPage in tabControl1.TabPages)
+            {
+                if (form2pass.Name.ToString().Trim() == tabPage.Tag.ToString().Trim())
+                {
+
+                    tabControl1.SelectTab(tabPage);
+                    return;
+                }
+            }
+            //TopLevel for form is set to false
+            form2pass.TopLevel = false;
+            //Added new TabPage
+            TabPage tbp = new TabPage();
+            if (form2pass.Text.Length > 25)
+            {
+                tbp.Text = form2pass.Text.Substring(0, 20) + "...";
+            }
+            else
+            {
+                tbp.Text = form2pass.Text;
+            }
+            tbp.Tag = form2pass.Name.ToString();
+            form2pass.FormBorderStyle = FormBorderStyle.None;
+            form2pass.Dock = DockStyle.Fill;
+            tbp.Controls.Add(form2pass);
+
+
+            tabControl1.TabPages.Add(tbp);
+            tabControl1.SelectTab(tbp);
+            //Added form to tabpage
+            form2pass.Show();
+        }
+
+        private void btn_closeTab_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabPages.Count > 1)
+            {
+                tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+                tabControl1.SelectTab(tabControl1.TabPages[tabControl1.TabPages.Count - 1]);
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //(tabControl1.SelectedTab).BackColor = Color.Teal;
+            //(tabControl1.SelectedTab).ForeColor = Color.White;
+        }
+    }
+}

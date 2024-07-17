@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class line_mnt_add : Form
+    {
+        public line_mnt_add()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_line.Text.Trim()))
+            {
+                MessageBox.Show("Please enter line name!", "Required Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_line.Focus();
+                return;
+            }
+
+            Int32 count = 0;
+            string txtProduct = txt_line.Text.Trim().Replace("'", "''").Replace("[", "");
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT COUNT(*) FROM tbl_web_line WHERE lineName like '" + txtProduct + "'", gclass.con);
+                gclass.con.Open();
+                count = (Int32)cmdS.ExecuteScalar();
+                gclass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on inquiring line! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            if(count>0)
+            {
+                MessageBox.Show("Product Name: '" + txtProduct + "' already exists in Product List!", "Product Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    SqlCommand cmdI = new SqlCommand("INSERT INTO tbl_web_line(productName, updatedBy, updatedByName, datetimeUpdated) " +
+                        "VALUES(@pN, @uB, @uBN, @dt)", gclass.con);
+                    gclass.con.Open();
+                    cmdI.Parameters.AddWithValue("@pN", txtProduct);
+                    cmdI.Parameters.AddWithValue("@uB", gclass.gs_user.Trim());
+                    cmdI.Parameters.AddWithValue("@uBN", gclass.gs_funame);
+                    cmdI.Parameters.AddWithValue("@dt", DateTime.Now.ToString());
+                    cmdI.ExecuteNonQuery();
+                    gclass.con.Close();
+
+                    isUpdated = true;
+                    MessageBox.Show("Added '" + txtProduct + "' to products!", "Added successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error on inserting products! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+    }
+}

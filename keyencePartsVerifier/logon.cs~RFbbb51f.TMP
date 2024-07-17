@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.DirectoryServices.AccountManagement;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class logon : Form
+    {
+        public logon()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            if(_verifyUser(txt_username.Text.Trim(), txt_password.Text.Trim()))
+            {
+                MessageBox.Show("You are a user!");
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password! \nPlease try again!", "User not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private bool _verifyUser(string user, string pass)
+        {
+            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "pri.local"))
+            {
+                // validate the credentials
+                bool isValid = pc.ValidateCredentials(user, pass);
+
+                if (isValid == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void logon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bw_logon_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for(int i=0;i<100;i++)
+            {
+                worker.ReportProgress(i);
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+
+        private void bw_logon_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void bw_logon_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

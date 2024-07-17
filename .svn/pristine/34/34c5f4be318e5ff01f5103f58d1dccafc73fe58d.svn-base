@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class uploadExcel_TransferToHistory : Form
+    {
+        public uploadExcel_TransferToHistory()
+        {
+            InitializeComponent();
+        }
+        transDataContext context = new transDataContext();
+        public uploadExcel_TransferToHistory(string _lineName, string _machineName, string _modelName)
+        {
+            InitializeComponent();
+            _getPartsAssignmentForTransfer(_lineName, _machineName, _modelName);
+        }
+        private void uploadExcel_TransferToHistory_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void _getPartsAssignmentForTransfer(string _lineName, string _machineName, string _modelName)
+        {
+            var tbl = context.tbl_web2_maintenances.Where(m => m.lineName == _lineName && m.machineName == _machineName && m.modelName == _modelName).ToList();
+
+            data.DataSource = tbl;
+        }
+
+        private void btn_transfer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bW_transfer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker = sender as BackgroundWorker;
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                //insert to maintenance_history
+                tbl_web2_maintenance_history newHist = new tbl_web2_maintenance_history();
+                newHist.mnt_id = Convert.ToInt32(data.Rows[i].Cells["mnt_id"].Value.ToString());
+                newHist.order_id = string.IsNullOrEmpty(data.Rows[i].Cells["order_id"].Value.ToString().Trim()) ? 0 : Convert.ToInt32(data.Rows[i].Cells["order_id"].Value.ToString());
+                newHist.lineName = data.Rows[i].Cells["lineName"].Value.ToString().Trim();
+                newHist.machineName = data.Rows[i].Cells["machineName"].Value.ToString().Trim();
+                newHist.tableName = data.Rows[i].Cells["tableName"].Value.ToString().Trim();
+                newHist.modelName = data.Rows[i].Cells["modelName"].Value.ToString().Trim();
+                newHist.feederLocation = data.Rows[i].Cells["feederLocation"].Value.ToString().Trim();
+                newHist.partsName = data.Rows[i].Cells["partsName"].Value.ToString().Trim();
+                newHist.dateUpdated = data.Rows[i].Cells["dateUpdated"].Value.ToString();
+                newHist.dateTransfer = DateTime.Now.ToShortDateString();
+
+                //delete from maintenance
+                tbl_web2_maintenance dataByID = context.tbl_web2_maintenances.Where(m => m.mnt_id == 1).FirstOrDefault();
+                context.tbl_web2_maintenances.DeleteOnSubmit(dataByID);
+                context.SubmitChanges();
+            }
+        }
+
+        private void bW_transfer_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void bW_transfer_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+        private void _partsTransfer(int mnt_id)
+        {
+            tbl_web2_maintenance t = new tbl_web2_maintenance();
+            t.mnt_id = mnt_id;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            tbl_web2_maintenance dataByID = context.tbl_web2_maintenances.Where(m => m.mnt_id == 1).FirstOrDefault();
+            context.tbl_web2_maintenances.DeleteOnSubmit(dataByID);
+            context.SubmitChanges();
+        }
+    }
+}

@@ -1,0 +1,183 @@
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csprojResolveAssemblyReference.cache
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.ADMINISTRATOR.LINQ.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.INQUIRY.scanner.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.loader.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.logon.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main2.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.arrangePartsAssignment.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.feeder_parts_assign2.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelErrors.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelFormatGuide.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_enterModel.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_TransferToHistory.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederLocation.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederMarkings.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_lineMachineTable.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_model.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.Properties.Resources.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testChild.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testParent.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TEST.testImportExcelAndExtract.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2_status.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.errorLogs.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode_multi.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.transTable.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.uploadedText.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.verifyParts.resources
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.application
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.pdb
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\PBarcoma.dll
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\PBarcoma.pdb
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\bin\Debug\PBarcoma.xml
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+C:\Users\g192123\Desktop\Grace Booc\New Projects\Desktop\KeyencePartsVerifier\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.application
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.pdb
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.dll
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.pdb
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.xml
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csprojResolveAssemblyReference.cache
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.ADMINISTRATOR.LINQ.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.INQUIRY.scanner.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.loader.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.logon.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main2.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.arrangePartsAssignment.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.feeder_parts_assign2.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelErrors.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelFormatGuide.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_enterModel.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_TransferToHistory.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederLocation.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederMarkings.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_lineMachineTable.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_model.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.Properties.Resources.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testChild.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testParent.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TEST.testImportExcelAndExtract.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2_status.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.errorLogs.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode_multi.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.transTable.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.uploadedText.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.verifyParts.resources
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Users\g192123\Desktop\Grace Booc\Projects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.manifest
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.application
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.pdb
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.dll
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.pdb
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.xml
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csprojResolveAssemblyReference.cache
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.ADMINISTRATOR.LINQ.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.INQUIRY.scanner.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.loader.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.logon.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main2.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.arrangePartsAssignment.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.feeder_parts_assign2.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelErrors.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelFormatGuide.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_enterModel.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_TransferToHistory.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederLocation.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederMarkings.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_lineMachineTable.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_model.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.Properties.Resources.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testChild.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testParent.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TEST.testImportExcelAndExtract.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2_status.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.errorLogs.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode_multi.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.transTable.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.uploadedText.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.verifyParts.resources
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
+\\kpshypervhost\SOURCE-CODE\Grace Booc\1.Workspace\Windows Apps\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.application
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.pdb
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.pdb
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.xml
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csprojResolveAssemblyReference.cache
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.ADMINISTRATOR.LINQ.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.INQUIRY.scanner.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.loader.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.logon.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.main2.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.arrangePartsAssignment.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.feeder_parts_assign2.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelErrors.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcelFormatGuide.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_enterModel.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.MAINTENANCE.uploadExcel_TransferToHistory.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederLocation.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_feederMarkings.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_lineMachineTable.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.PRINTBARCODE.printBarcode_model.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.Properties.Resources.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testChild.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.testParent.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TEST.testImportExcelAndExtract.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.actualChecking_byTables2_status.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.errorLogs.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.printBarcode_multi.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.transTable.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.uploadedText.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.TRANSACTION.verifyParts.resources
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\keyencePartsVerifier.csproj.GenerateResource.Cache
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe.manifest
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.application
+C:\Jay Tanza Files\Desktop Projects\Keyence\keyencePartsVerifier\bin\Debug\PBarcoma.dll
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\bin\Debug\Chipmounter Parts Verifier.exe.config
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.exe
+C:\Jay Tanza Projects\MyProjects\Desktop\Keyence\keyencePartsVerifier\obj\Debug\Chipmounter Parts Verifier.pdb

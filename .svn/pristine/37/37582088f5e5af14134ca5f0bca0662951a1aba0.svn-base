@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class main : Form
+    {
+        public main()
+        {
+            InitializeComponent();
+        }
+        #region Open forms in MDI
+        public void OpenMDIChildForm(Form form)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == form.GetType())
+                {
+                    frm.Focus();
+                    return;
+                }
+            }
+            form.MdiParent = this;
+            form.Show();
+        }
+        #endregion
+        private void main_Load(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is MdiClient)
+                {
+                    control.BackColor = Color.White;
+                    //control.BackgroundImage = PIS_pqa.Properties.Resources.pentaxLOGO2;
+                    break;
+                }
+            }
+        }
+
+        private void printBarcodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.printBarcode());
+        }
+
+        private void productListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.product_mnt());
+        }
+
+        private void lineListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.line_mnt());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txt_DT.Text =DateTime.Now.ToLongDateString()+"  -  " +DateTime.Now.ToLongTimeString();
+        }
+
+        private void main_Shown(object sender, EventArgs e)
+        {
+            new logon().ShowDialog();
+            new loader().Show();
+            txt_user.Text = gclass.gs_user;
+            txt_name.Text = gclass.gs_funame;
+        }
+
+        private void tableListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.table_mnt());
+        }
+
+        private void feederListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.feeder_mnt());
+        }
+    }
+}

@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace printBarcodeOffline
+{
+    public partial class printDatamatrixFeederMarkings : Form
+    {
+        public printDatamatrixFeederMarkings()
+        {
+            InitializeComponent();
+        }
+        public string startPath = Application.StartupPath.ToString();
+        public static string conString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source="+Application.StartupPath.ToString().Trim()+"\\DB.mdb";
+        generateBarcode barcode = new generateBarcode();
+        int iFrom = 0; int iTo = 0; int iTotal = 0;
+        private void txt_status_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_status.Text.ToLower().Contains("success"))
+            {
+                txt_status.ForeColor= Color.Green;
+            }
+            else if (txt_status.Text.ToLower().Contains("wait"))
+            {
+                txt_status.ForeColor = Color.Blue;
+            }
+            else if (txt_status.Text.ToLower().Contains("error"))
+            {
+                txt_status.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_status.ForeColor = Color.Black;
+            }
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void printDatamatrixFeederMarkings_Load(object sender, EventArgs e)
+        {
+            barcode.VerifyBarcodeFolder();
+        }
+
+        private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            DialogResult d = MessageBox.Show("Are you sure to exit application?", "Quit?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (d == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void printDatamatrixFeederMarkings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_from.Text.Trim()))
+            {
+                MessageBox.Show("Please enter (Number From)!", "Invalid number", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_to.Text.Trim()))
+            {
+                MessageBox.Show("Please enter (Number To)!", "Invalid number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            try
+            {
+               iFrom= int.Parse(txt_from.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid entry!\nPlease enter number!", "Invalid Entry", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                iTo=int.Parse(txt_to.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid entry!\nPlease enter number!", "Invalid Entry", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (iFrom <= iTo)
+            {
+                barcode.Reset();
+                iTotal = iTo - iFrom;
+                //MessageBox.Show("Condition passed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!bW_print.IsBusy)
+                {
+                    bW_print.RunWorkerAsync(500);
+                }
+
+            }else
+            {
+                MessageBox.Show("Out of Range!\n(Number To) must be greater than or equal to (Number From)!", "Out of Range!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+
+            
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            appTools._dgvRows(sender,e,this.Font);
+        }
+        private void bW_print_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker = sender as BackgroundWorker;
+            int startCount = 0;
+            for (int i =iFrom; i <= iTo; i++)
+            {
+                worker.ReportProgress(startCount++);
+                barcode.generateDataMatrix(i, i.ToString().Trim());
+            }
+        }
+
+        private void bW_print_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            decimal dTotal = Convert.ToDecimal(iTotal);
+            metroProgressBar1.Minimum = 0;
+            metroProgressBar1.Maximum = iTotal;
+            metroProgressBar1.Value = e.ProgressPercentage;
+            txt_status.Text = "Status:  Generating Datamatrix"+((Convert.ToDecimal(e.ProgressPercentage)/dTotal)*100).ToString("N2")+"...";
+        }
+
+        private void bW_print_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            txt_status.Text = "Status:  Printing. . .";
+            crystalReportViewer1.ReportSource = barcode.printDataMatrix();
+            crystalReportViewer1.Zoom(2);
+            txt_status.Text = "Status:  Ready!";
+        }
+
+    }
+}

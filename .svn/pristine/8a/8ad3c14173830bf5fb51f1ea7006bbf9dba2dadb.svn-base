@@ -1,0 +1,94 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.PRINTBARCODE
+{
+    public partial class printBarcode_model : Form
+    {
+        public printBarcode_model()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void btn_print2_Click(object sender, EventArgs e)
+        {
+            barcode.Reset();
+            for (int i = 0; data.Rows.Count > i; i++)
+            {
+                barcode.QRCode(data.Rows[i].Cells["dg_header"].Value.ToString().Trim(), data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), 4);
+                data.Rows[i].Cells["dg_check"].Value = 1;
+                data.Rows[i].Selected = true;
+            }
+            if (string.IsNullOrEmpty(txt_barcode1.Text))
+            {
+                MessageBox.Show("Please enter value to 1st barcode!", "Barcode Value Required!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_barcode1.Focus();
+                return;
+            }
+            if (inquireModel(txt_barcode1.Text))
+            {
+                barcode.QRCode("Model",txt_barcode1.Text.Trim(), txt_barcode1.Text.Trim(), 4);
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid model!", "Invalid Model!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_barcode1.Focus();
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(txt_barcode2.Text))
+            {
+                if (inquireModel(txt_barcode2.Text))
+                {
+                    barcode.QRCode("Model", txt_barcode2.Text.Trim(), txt_barcode2.Text.Trim(), 4);
+                }else
+                {
+                    MessageBox.Show("Please enter valid model!", "Invalid Model!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_barcode2.Focus();
+                    return;
+                }
+            }
+
+            barcode.printBarcode_model(0);
+        }
+
+        private bool inquireModel(string model)
+        {
+            bool isExist = false;
+            SqlCommand cmdS = new SqlCommand("SELECT COUNT(*) FROM tbl_web2_maintenance WHERE modelName ='"+model.Trim()+"'", gclass.con);
+            gclass.con.Open();
+            Int32 count = (Int32)cmdS.ExecuteScalar();
+            gclass.con.Close();
+
+            if (count > 0)
+            {
+                isExist = true;
+            }
+            return isExist;
+        }
+
+        private void printBarcode_model_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void loadModels()
+        {
+            SqlCommand cmdS = new SqlCommand("SELECT distinct modelName FROM tbl_web2_maintenance", gclass.con);
+            gclass.con.Open();
+            SqlDataReader dr = cmdS.ExecuteReader();
+            while (dr.Read())
+            {
+
+            }
+            dr.Close();
+            gclass.con.Close();
+        }
+    }
+}

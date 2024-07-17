@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class loader : Form
+    {
+        public loader()
+        {
+            InitializeComponent();
+        }
+        int selector = 0;
+        private void loader_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bw_hehe_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker = sender as BackgroundWorker;
+            if(selector==0)
+            {
+                for(int i=0;i<100;i++)
+                {
+                    worker.ReportProgress(i);
+                    System.Threading.Thread.Sleep(50);
+                }
+            }
+        }
+
+        private void bw_hehe_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void bw_hehe_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+    }
+}

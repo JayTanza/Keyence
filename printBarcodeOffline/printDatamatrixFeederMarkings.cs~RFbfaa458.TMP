@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace printBarcodeOffline
+{
+    public partial class printDatamatrixFeederMarkings : Form
+    {
+        public printDatamatrixFeederMarkings()
+        {
+            InitializeComponent();
+        }
+
+        private void txt_status_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_status.Text.ToLower().Contains("success"))
+            {
+                txt_status.ForeColor= Color.Green;
+            }
+            else if (txt_status.Text.ToLower().Contains("wait"))
+            {
+                txt_status.ForeColor = Color.Blue;
+            }
+            else if (txt_status.Text.ToLower().Contains("error"))
+            {
+                txt_status.ForeColor = Color.Red;
+            }
+            else
+            {
+                txt_status.ForeColor = Color.Black;
+            }
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void printDatamatrixFeederMarkings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            DialogResult d = MessageBox.Show("Are you sure to exit application?", "Quit?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (d == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void printDatamatrixFeederMarkings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

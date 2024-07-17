@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.PRINTBARCODE
+{
+    public partial class printBarcode_model : Form
+    {
+        public printBarcode_model()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void btn_print2_Click(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                lbl_status.Text = "Status: Printing. Please wait. . .";
+                barcode.Reset();
+                //for (int i = 0; data.Rows.Count > i; i++)
+                //{
+                //    barcode.QRCode("Model", data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), data.Rows[i].Cells["dg_barcodeValue"].Value.ToString().Trim(), 4, i);
+                //    data.Rows[i].Cells["dg_check"].Value = 1;
+                //    data.Rows[i].Selected = true;
+                //}
+                if (string.IsNullOrEmpty(txt_barcode1.Text))
+                {
+                    lbl_status.Text = "Status: Please enter value to 1st barcode!";
+                    //MessageBox.Show("Please enter value to 1st barcode!", "Barcode Value Required!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_barcode1.Focus();
+                    return;
+                }
+                //if (inquireModel(txt_barcode1.Text))
+                //{
+                    barcode.QRCode("Model", txt_barcode1.Text.Trim(), txt_barcode1.Text.Trim(), 4, 0);
+                //}
+                //else
+                //{
+                //    lbl_status.Text = "Status: Enter valid model!";
+                //    //MessageBox.Show("Please enter valid model!", "Invalid Model!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    txt_barcode1.Focus();
+                //    return;
+                //}
+
+                if (!string.IsNullOrEmpty(txt_barcode2.Text))
+                {
+                    //if (inquireModel(txt_barcode2.Text))
+                    //{
+                        barcode.QRCode("Model", txt_barcode2.Text.Trim(), txt_barcode2.Text.Trim(), 4, 0);
+                    //}
+                    //else
+                    //{
+                    //    lbl_status.Text = "Status: Enter valid model!";
+                    //    //MessageBox.Show("Please enter valid model!", "Invalid Model!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    txt_barcode2.Focus();
+                    //    return;
+                    //}
+                }
+
+                barcode.printBarcode_model(0);
+                lbl_status.Text = "Status: Print successful!";
+                //MessageBox.Show("Print successful!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private bool inquireModel(string model)
+        {
+            bool isExist = false;
+            SqlCommand cmdS = new SqlCommand("SELECT COUNT(*) FROM tbl_web2_maintenance WHERE modelName ='"+model.Trim()+"'", gclass.con);
+            gclass.con.Open();
+            Int32 count = (Int32)cmdS.ExecuteScalar();
+            gclass.con.Close();
+
+            if (count > 0)
+            {
+                isExist = true;
+            }
+            return isExist;
+        }
+
+        private void printBarcode_model_Load(object sender, EventArgs e)
+        {
+            loadModels();
+        }
+        private void loadModels()
+        {
+            SqlCommand cmdS = new SqlCommand("sp_getModelName", gclass.con);
+            cmdS.CommandType = CommandType.StoredProcedure;
+            gclass.con.Open();
+            SqlDataReader dr = cmdS.ExecuteReader();
+            while (dr.Read())
+            {
+                data.Rows.Add(0, dr["modelName"].ToString().Trim());
+            }
+            dr.Close();
+            gclass.con.Close();
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e, this.Font);
+        }
+
+        private void btn_printSelectModels_Click(object sender, EventArgs e)
+        {
+            barcode.Reset();
+            bool hasSelectedModel = false;
+            if (data.Rows.Count > 0)
+            {
+                int order_id = 0;
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    
+                    if (Convert.ToBoolean(row.Cells["dg_check"].Value) == true)
+                    {
+                        order_id++;
+                        hasSelectedModel = true;
+                        barcode.QRCode("Model", row.Cells["dg_barcodeValue"].Value.ToString(), row.Cells["dg_barcodeValue"].Value.ToString(), 4, order_id);
+                    }
+                }
+
+                if (hasSelectedModel)
+                {
+                    barcode.printBarcode_model(0);
+                    MessageBox.Show("Print successful!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select models by checking!", "No Models selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No models to print!", "No Models", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                
+            }
+        }
+    }
+}

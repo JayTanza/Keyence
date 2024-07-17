@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_mnt_edit : Form
+    {
+        public feeder_mnt_edit()
+        {
+            InitializeComponent();
+        }
+        string feederID = ""; public static bool isUpdated = false;
+        public feeder_mnt_edit(string _feederID, string _feederName)
+        {
+            InitializeComponent();
+            feederID = _feederID.Trim();
+            txt_feeder.Text = _feederName.Trim();
+        }
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_feeder.Text.Trim()))
+            {
+                MessageBox.Show("Please enter product name!", "Required Field!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                SqlCommand cmdU = new SqlCommand("UPDATE tbl_web_feeder SET feederName=@pN, updatedBy=@uB, updatedByName=@uBN, datetimeUpdated=@dt " +
+                    "WHERE feederIsd=@id", gclass.con);
+                gclass.con.Open();
+                cmdU.Parameters.AddWithValue("@pN", txt_feeder.Text.Trim());
+                cmdU.Parameters.AddWithValue("@uB", gclass.gs_user.Trim());
+                cmdU.Parameters.AddWithValue("@uBN", gclass.gs_funame.Trim());
+                cmdU.Parameters.AddWithValue("@dt", DateTime.Now.ToString());
+                cmdU.Parameters.AddWithValue("@id", feederID);
+                cmdU.ExecuteNonQuery();
+                gclass.con.Close();
+
+                isUpdated = true;
+                MessageBox.Show("Updated successfully!", "Product updated!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on editing product name! Details: " + ex.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

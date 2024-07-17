@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking : Form
+    {
+        public actualChecking()
+        {
+            InitializeComponent();
+        }
+        private transDataContext context = new transDataContext();
+        private void actualChecking_Load(object sender, EventArgs e)
+        {
+            var tbl = context.tbl_web2_maintenances.OrderBy(m => m.mnt_id);
+
+            data.DataSource = tbl;
+
+            _loadLines();
+        }
+        private void _loadLines()
+        {
+            var tbl = context.tbl_web2_maintenances.ToList();
+
+            for (int i = 0; tbl.ToList() > i;i++ )
+            {
+                cb_line.Items.Add(tbl);
+            }
+            
+        }
+        private void _loadTransaction()
+        {
+            //var tbl_trans=tbl_web2_maintenance;
+            //var trans=(from DataRow in tbl_web2_maintenance)
+        }
+    }
+}

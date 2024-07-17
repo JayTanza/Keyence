@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking_byTables2_status : Form
+    {
+        public actualChecking_byTables2_status()
+        {
+            InitializeComponent();
+        }
+
+        public actualChecking_byTables2_status(string _model, string _line, string _machine, string _table, SqlConnection con)
+        {
+            InitializeComponent();
+            _getStatus();
+        }
+        private void actualChecking_byTables2_status_Load(object sender, EventArgs e)
+        {
+
+        }
+        void _getStatus(string model, string line, string machine, string table)
+        {
+            
+        }
+    }
+
+    //public class Infomtion<T> where T : class
+    //{
+    //    public 
+    //}
+    //public class fa
+    //{
+
+    //    //System.Collections.IEnumerable<Infomtio>
+    //    //public void T 
+    //    //{
+
+    //    string _model;
+
+    //    public string Model
+    //    {
+    //        get { return _model; }
+    //        set { _model = value; }
+    //    } 
+    //    string _line;
+
+    //    public string Line
+    //    {
+    //        get { return _line; }
+    //        set { _line = value; }
+    //    } 
+    //    string _machine;
+
+    //    public string Machine
+    //    {
+    //        get { return _machine; }
+    //        set { _machine = value; }
+    //    } 
+    //    string _table;
+
+    //    public string Table
+    //    {
+    //        get { return _table; }
+    //        set { _table = value; }
+    //    } 
+    //    SqlConnection con;
+
+    //    public SqlConnection Con
+    //    {
+    //        get { return con; }
+    //        set { con = value; }
+    //    }
+    //}
+}
+
+

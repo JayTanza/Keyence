@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking : Form
+    {
+        public actualChecking()
+        {
+            InitializeComponent();
+        }
+        private transDataContext context = new transDataContext();
+        private void actualChecking_Load(object sender, EventArgs e)
+        {
+            _loadTransaction();
+            _loadModel();
+            _loadLines();
+            _loadTable();
+            _loadMachine();
+            _loadType();
+        }
+        private void _loadTransaction()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z).OrderBy(m => m.transID);
+            data.DataSource = tbl;
+        }
+        private void _loadModel()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.modelName).Distinct().ToList();
+            cb_model.DataSource = tbl;
+        }
+        private void _loadLines()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.lineName).Distinct().ToList();
+            cb_line.DataSource = tbl;
+        }
+        private void _loadTable()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.tableName).Distinct().ToList();
+            cb_table.DataSource = tbl;
+        }
+        private void _loadMachine()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.machineName).Distinct().ToList();
+            cb_machine.DataSource = tbl;
+        }
+        private void _loadType()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.type).Distinct().ToList();
+            cb_type.DataSource = tbl;
+        }
+
+        private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _filterData();
+        }
+        private void _filterData()
+        {
+            var tbl=(from z in context.tbl_web2_transactions select z).Where(m=>(m.lineName.Trim()==cb_line.Text && m.modelName.Trim()==cb_model.Text.Trim() && m.type==cb_type.ValueMember));
+            data.DataSource = tbl;
+        }
+    }
+}

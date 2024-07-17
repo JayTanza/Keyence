@@ -1,0 +1,278 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class main : Form
+    {
+        public main()
+        {
+            InitializeComponent();
+        
+        }
+        #region Open forms in MDI
+
+        public void OpenMDIChildForm(Form form)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == form.GetType())
+                {
+                    frm.WindowState = FormWindowState.Maximized;
+                    //frm.Dock = DockStyle.Fill;
+                    frm.Focus();
+                    return;
+                }
+            }
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            //form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+        #endregion
+        private void main_Load(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is MdiClient)
+                {
+                    control.BackColor = Color.White;
+                    break;
+                }
+            }
+
+            try
+            {
+
+                if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+                {
+                    lblVersion.Text = "Version | " + System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+                    //   try
+                    //  {
+                    //  System.Net.IPHostEntry host = Dns.GetHostEntry(System.Net.Dns.GetHostName());
+                    //  string MachineName = System.Environment.MachineName;
+                    //  string IPAddress = Dns.GetHostByName(Dns.GetHostName().ToString()).AddressList[0].ToString();
+                    //  Controller.DashboardController.InsertVersion(MachineName, IPAddress, lblRevision.Text, GlobalProperty.USD_ID);
+                    //   }
+                    //    catch (Exception ex)
+                    //   {
+                  //  MessageBox.Show(ex.Message, "System Says...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //   }
+                }
+                else
+                    lblVersion.Text = "Not Deployed";
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //if (!enableLatestBrowser.WBEmulator.IsBrowserEmulationSet())
+            //{
+            //    enableLatestBrowser.WBEmulator.SetBrowserEmulationVersion();
+
+            //}
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            //DialogResult d = MessageBox.Show("Are you sure to exit Chipmounter Parts Verifier System?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (d == DialogResult.No)
+            //{
+            //    e.Cancel = true;
+            //}
+        }
+        public void OpenChild(Form form)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == form.GetType())
+                {
+                    frm.WindowState = FormWindowState.Normal;
+                    frm.Focus();
+                    return;
+                }
+                //frm.Close();
+            }
+            //form.WindowState = FormWindowState.Normal;
+            form.Show();
+        }
+        private void printBarcodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.printBarcode());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txt_DT.Text =DateTime.Now.ToLongDateString()+"  -  " +DateTime.Now.ToLongTimeString();
+        }
+
+        private void main_Shown(object sender, EventArgs e)
+        {
+            new logon().ShowDialog();
+            //new loader().Show();
+            txt_user.Text = gclass.gs_user;
+            txt_name.Text = gclass.gs_funame;
+            //OpenMDIChildForm(new TRANSACTION.actualChecking_byTables());
+        }
+
+        private void barcodeScannerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChild(new INQUIRY.scanner());
+        }
+
+        private void verifyPartsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //OpenMDIChildForm(new TRANSACTION.verifyParts());
+            new TRANSACTION.verifyParts().ShowDialog();
+        }
+
+        private void keyenceTransactionTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.transTable());
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.printBarcode_multi());
+        }
+
+        private void btn_barcode_Click(object sender, EventArgs e)
+        {
+            cms_barcode.Show(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        private void printBarcodeModelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //OpenChild(new PRINTBARCODE.printBarcode_model());
+            new PRINTBARCODE.printBarcode_model().ShowDialog();
+        }
+
+        private void printBarcodeLineMachineTableToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //OpenChild(new PRINTBARCODE.printBarcode_lineMachineTable());
+            new PRINTBARCODE.printBarcode_lineMachineTable().ShowDialog();
+        }
+
+        private void printBarcideFeederLocationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //OpenChild(new PRINTBARCODE.printBarcode_feederLocation());
+            new PRINTBARCODE.printBarcode_feederLocation().ShowDialog();
+        }
+
+        private void partsAssignmentListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.feeder_parts_assign2());
+        }
+
+        private void actualCheckingProgressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.actualChecking());
+        }
+
+        private void partsCheckingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barcodeScannerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenChild(new INQUIRY.scanner());
+        }
+
+        private void uploadPartsAssignmentExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.uploadExcel());
+        }
+
+        private void main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void printBarcodeAnyValueToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //OpenChild(new TRANSACTION.printBarcode_multi());
+            new TRANSACTION.printBarcode_multi().ShowDialog();
+        }
+
+        private void errorLogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.errorLogs());
+        }
+
+        private void main_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.Name != "main" && !frm.IsMdiChild)
+                    {
+                        frm.Hide();
+                    }
+                }
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm.Name != "main" && !frm.IsMdiChild)
+                    {
+                        frm.Show();
+                    }
+                }
+            }
+        }
+
+        private void arragePartsFeederAssignmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.arrangePartsAssignment());
+        }
+        private void getCurrentPeriod()
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.actualChecking_byTables2());
+            //OpenChild(new TRANSACTION.actualChecking_byTables2());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printDataMatrixForFeederMarkingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //OpenChild(new PRINTBARCODE.printBarcode_feederMarkings());
+            new PRINTBARCODE.printBarcode_feederMarkings().ShowDialog();
+        }
+
+        private void uploadedTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChild(new TRANSACTION.uploadedText());
+        }
+
+        private void userSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lINQStudiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+}

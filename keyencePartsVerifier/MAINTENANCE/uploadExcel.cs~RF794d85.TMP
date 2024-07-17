@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class uploadExcel : Form
+    {
+        public uploadExcel()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_browse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Filter = "Excel File (*.xls)|*.xlsx|CSV File (*.csv)|*.csv";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string exFilenm = openFileDialog.FileName;
+                String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
+                            "" + exFilenm + "" +
+                            ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+                OleDbConnection con = new OleDbConnection(constr);
+                con.Open();//-----OPen Connnection
+                DataTable Sheets = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                DataTable dt = new DataTable();
+                foreach (DataRow dr in Sheets.Rows)
+                {
+                    string sht = dr[2].ToString();
+                    OleDbCommand OleCmd = new OleDbCommand("SELECT DISTINCT * FROM [" + sht + "] ", con);
+                    OleDbDataAdapter sda = new OleDbDataAdapter(OleCmd);
+
+                    sda.Fill(dt);
+
+                }
+                con.Close();//-----Close Connection
+                data.DataSource = dt;
+
+                MessageBox.Show("Excel File imported! Please upload the data!", "Data Imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            txt_status.Text = data.Rows.Count.ToString() + " row(s) found!";
+        }
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                if (data.Columns.Count >= 8)
+                {
+                    MessageBox.Show("Okay to insert!", "Okay kaayu!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Excel File! \nPlease select valid Parts Assignment - Excel File!", "Invalid Excel File!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No data to upload! Please browse valid excel file!", "No Rows Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+    }
+}

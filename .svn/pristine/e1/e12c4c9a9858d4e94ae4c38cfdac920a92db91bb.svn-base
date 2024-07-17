@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class transTable : Form
+    {
+        public transTable()
+        {
+            InitializeComponent();
+        }
+
+        private void transTable_Load(object sender, EventArgs e)
+        {
+            _loadBatch();
+        }
+        private void _loadBatch()
+        {
+            splitContainer1.SplitterDistance = 232;
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT distinct rtrim(batchID) as batchID FROM tbl_web_transaction", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+
+                data_batch.DataSource = dt;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+    }
+}

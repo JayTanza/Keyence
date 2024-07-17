@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.PRINTBARCODE
+{
+    public partial class printBarcode_feederLocation : Form
+    {
+        public printBarcode_feederLocation()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void chk_feeder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (chk_feeder.Checked)
+                    {
+                        row.Cells["dg_check"].Value = 1;
+                    }
+                    else
+                    {
+                        row.Cells["dg_check"].Value = 0;
+                    }
+                }
+            }
+        }
+
+        private void printBarcode_feederLocation_Load(object sender, EventArgs e)
+        {
+            loadFeederLocations();
+        }
+        private void loadFeederLocations()
+        {
+            transDataContext context = new transDataContext();
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select new { z.mnt_id, z.feederLocation }).Distinct().ToList();
+            foreach (var s in tbl)
+            {
+                //MessageBox.Show(s.feederLocation);
+              
+                data.Rows.Add(0, s.feederLocation);
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void btn_printSelected_Click(object sender, EventArgs e)
+        {
+            barcode.Reset();
+            bool hasSelected = false;
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["dg_check"].Value) == true)
+                    {
+                        hasSelected = true;
+                        barcode.QRCode("Feeder", row.Cells["dg_feederLocation"].Value.ToString().Trim(), row.Cells["dg_feederLocation"].Value.ToString().Trim(), 4);
+                    }
+                }
+
+                if (hasSelected)
+                {
+                    barcode.printBarcode_feederLocation(0);
+                    MessageBox.Show("Print successful!", "Success!", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select feeder location!", "None selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No feeder locations found!", "No rows found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

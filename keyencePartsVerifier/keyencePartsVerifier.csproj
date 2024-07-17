@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CAE59A8-848D-490B-8B80-66F50BD49F68}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>keyencePartsVerifier</RootNamespace>
+    <AssemblyName>Chipmounter Parts Verifier</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>8a5ab35d</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Jay Tanza Files\Keyence\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\kpsdev\apps\Chipmounter Parts Verifier %28Keyence%29\</InstallUrl>
+    <PublisherName>Rene Boy Constantino</PublisherName>
+    <ApplicationRevision>67</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Chrisbanks2-Cold-Fusion-Hd-QR-scanner.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5BE026D66F2F03CED9EFF4A7C7E1B76E673B8880</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>keyencePartsVerifier_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>..\..\..\..\..\..\..\program files\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>..\..\..\..\..\..\..\program files\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>..\..\..\..\..\..\..\program files\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="DataMatrix.net">
+      <HintPath>..\..\..\..\..\Desktop\DLL\DataMatrix.net.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\..\Desktop\DLL\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\..\..\Desktop\DLL\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\..\..\Desktop\DLL\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="PBarcoma">
+      <HintPath>\\Kpshypervhost\source-code\Project\PBarcoma\PBarcoma\bin\Debug\PBarcoma.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio 12.0\Visual Studio Tools for Office\PIA\Common\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4672.26242, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PBarcoma\PBarcoma\bin\Debug\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADMINISTRATOR\LINQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMINISTRATOR\LINQ.Designer.cs">
+      <DependentUpon>LINQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="appTools.cs" />
+    <Compile Include="enableLatestBrowser.cs" />
+    <Compile Include="gclass.cs" />
+    <Compile Include="generateBarcode.cs" />
+    <Compile Include="ADMINISTRATOR\scanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADMINISTRATOR\scanner.Designer.cs">
+      <DependentUpon>scanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loader.Designer.cs">
+      <DependentUpon>loader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logon.Designer.cs">
+      <DependentUpon>logon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main2.Designer.cs">
+      <DependentUpon>main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\arrangePartsAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\arrangePartsAssignment.Designer.cs">
+      <DependentUpon>arrangePartsAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\feeder_parts_assign2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\feeder_parts_assign2.Designer.cs">
+      <DependentUpon>feeder_parts_assign2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel.Designer.cs">
+      <DependentUpon>uploadExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcelErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcelErrors.Designer.cs">
+      <DependentUpon>uploadExcelErrors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcelFormatGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcelFormatGuide.Designer.cs">
+      <DependentUpon>uploadExcelFormatGuide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel_enterModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel_enterModel.Designer.cs">
+      <DependentUpon>uploadExcel_enterModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel_TransferToHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAINTENANCE\uploadExcel_TransferToHistory.Designer.cs">
+      <DependentUpon>uploadExcel_TransferToHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\tableIncludedClass.cs" />
+    <Compile Include="MODELS\trans.cs">
+      <DependentUpon>trans.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\trans.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>trans.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\trans2.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>trans2.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_feederLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_feederLocation.Designer.cs">
+      <DependentUpon>printBarcode_feederLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_feederMarkings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_feederMarkings.Designer.cs">
+      <DependentUpon>printBarcode_feederMarkings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_lineMachineTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_lineMachineTable.Designer.cs">
+      <DependentUpon>printBarcode_lineMachineTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_model.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRINTBARCODE\printBarcode_model.Designer.cs">
+      <DependentUpon>printBarcode_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPORT\qr.cs">
+      <DependentUpon>qr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="REPORT\qr_feederLocation.cs">
+      <DependentUpon>qr_feederLocation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="REPORT\qr_feederMarkings.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_feederMarkings.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\qr_feederMarkings2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_feederMarkings2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\qr_lineMachineTable.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_lineMachineTable.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\qr_mini.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_mini.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\qr_model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_model.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\qr_model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qr_model2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="REPORT\rptdoubleprint.cs">
+      <DependentUpon>rptdoubleprint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="REPORT\rptsingleprinting.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptsingleprinting.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="testChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testChild.Designer.cs">
+      <DependentUpon>testChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testParent.Designer.cs">
+      <DependentUpon>testParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TEST\testImportExcelAndExtract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TEST\testImportExcelAndExtract.Designer.cs">
+      <DependentUpon>testImportExcelAndExtract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking.Designer.cs">
+      <DependentUpon>actualChecking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables.Designer.cs">
+      <DependentUpon>actualChecking_byTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables2.Designer.cs">
+      <DependentUpon>actualChecking_byTables2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables2_status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\actualChecking_byTables2_status.Designer.cs">
+      <DependentUpon>actualChecking_byTables2_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\errorLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\errorLogs.Designer.cs">
+      <DependentUpon>errorLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\printBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\printBarcode.Designer.cs">
+      <DependentUpon>printBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\printBarcode_multi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\printBarcode_multi.Designer.cs">
+      <DependentUpon>printBarcode_multi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\transTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\transTable.Designer.cs">
+      <DependentUpon>transTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\uploadedText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\uploadedText.Designer.cs">
+      <DependentUpon>uploadedText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRANSACTION\verifyParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRANSACTION\verifyParts.Designer.cs">
+      <DependentUpon>verifyParts.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ADMINISTRATOR\LINQ.resx">
+      <DependentUpon>LINQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMINISTRATOR\scanner.resx">
+      <DependentUpon>scanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loader.resx">
+      <DependentUpon>loader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logon.resx">
+      <DependentUpon>logon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main2.resx">
+      <DependentUpon>main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\arrangePartsAssignment.resx">
+      <DependentUpon>arrangePartsAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\feeder_parts_assign2.resx">
+      <DependentUpon>feeder_parts_assign2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\uploadExcel.resx">
+      <DependentUpon>uploadExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\uploadExcelErrors.resx">
+      <DependentUpon>uploadExcelErrors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\uploadExcelFormatGuide.resx">
+      <DependentUpon>uploadExcelFormatGuide.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="MODELS\trans.dbml.layout">
+      <DependentUpon>trans.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="MAINTENANCE\uploadExcel_enterModel.resx">
+      <DependentUpon>uploadExcel_enterModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAINTENANCE\uploadExcel_TransferToHistory.resx">
+      <DependentUpon>uploadExcel_TransferToHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MODELS\trans2.dbml.layout">
+      <DependentUpon>trans2.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="PRINTBARCODE\printBarcode_feederLocation.resx">
+      <DependentUpon>printBarcode_feederLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINTBARCODE\printBarcode_feederMarkings.resx">
+      <DependentUpon>printBarcode_feederMarkings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINTBARCODE\printBarcode_lineMachineTable.resx">
+      <DependentUpon>printBarcode_lineMachineTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRINTBARCODE\printBarcode_model.resx">
+      <DependentUpon>printBarcode_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="REPORT\qr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_feederLocation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_feederLocation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_feederMarkings.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_feederMarkings.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_feederMarkings2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_feederMarkings2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_lineMachineTable.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_lineMachineTable.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_mini.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_mini.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_model.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_model.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\qr_model2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>qr_model2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="REPORT\rptdoubleprint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptdoubleprint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORT\rptsingleprinting.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptsingleprinting.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testChild.resx">
+      <DependentUpon>testChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testParent.resx">
+      <DependentUpon>testParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TEST\testImportExcelAndExtract.resx">
+      <DependentUpon>testImportExcelAndExtract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\actualChecking.resx">
+      <DependentUpon>actualChecking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\actualChecking_byTables.resx">
+      <DependentUpon>actualChecking_byTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\actualChecking_byTables2.resx">
+      <DependentUpon>actualChecking_byTables2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\actualChecking_byTables2_status.resx">
+      <DependentUpon>actualChecking_byTables2_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\errorLogs.resx">
+      <DependentUpon>errorLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\printBarcode.resx">
+      <DependentUpon>printBarcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\printBarcode_multi.resx">
+      <DependentUpon>printBarcode_multi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\transTable.resx">
+      <DependentUpon>transTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\uploadedText.resx">
+      <DependentUpon>uploadedText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRANSACTION\verifyParts.resx">
+      <DependentUpon>verifyParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MODELS\trans.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>trans.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MODELS\trans2.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>trans2.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\keyencePartsVerifier.MODELS.tbl_web2_transaction.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyence.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="myControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Chrisbanks2-Cold-Fusion-Hd-QR-scanner.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="CrystalDecisions.CrystalReports.Engine">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.ClientDoc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.CommLayer">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.CommonControls">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.CommonObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.Controllers">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.CubeDefModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.DataDefModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.DataSetConversion">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.ObjectFactory">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.Prompting">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.ReportDefModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportAppServer.XmlSerialize">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.ReportSource">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="CrystalDecisions.Shared">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.DirectoryServices.AccountManagement;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class logon : Form
+    {
+        public logon()
+        {
+            InitializeComponent();
+        }
+
+        private bool isClose = false;
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+           DialogResult d = MessageBox.Show("Are you sure to exit Chipmounter Parts Verifier System?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+           if (d == DialogResult.Yes)
+           {
+               isClose = true;
+               Application.Exit();
+           }
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            if(_verifyUser(txt_username.Text.Trim(), txt_password.Text.Trim()))
+            {
+                _loadUser(txt_username.Text.Trim(), txt_password.Text.Trim());
+            }
+            else
+            {
+                MessageBox.Show("Wrong username or password! \nPlease try again!", "User not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_password.ResetText();
+                txt_password.Focus();
+            }
+        }
+        private bool _verifyUser(string user, string pass)
+        {
+            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "pri.local"))
+            {
+                // validate the credentials
+                bool isValid = pc.ValidateCredentials(user, pass);
+
+                if (isValid == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        private void _loadUser(string uname, string pass)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(@"SELECT *  FROM tbl_users_rights WHERE username=@username", gclass.con);
+                cmd.Parameters.AddWithValue("@username", uname);
+                gclass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    gclass.gs_lname = dr["lastname"].ToString().Trim();
+                    gclass.gs_fname = dr["firstname"].ToString().Trim();
+                    gclass.gs_funame = dr["firstname"].ToString().Trim() + " " + dr["lastname"].ToString().Trim();
+                    gclass.gs_user = dr["username"].ToString().Trim();
+                    gclass.gs_pass = dr["password"].ToString().Trim();
+                }
+                dr.Close();
+                gclass.con.Close();
+
+                if (txt_username.Text.Trim() == gclass.gs_user)
+                {
+                    txt_username.ReadOnly = true;
+                    txt_password.ReadOnly = true;
+                    this.UseWaitCursor = true;
+                    if (!bw_logon.IsBusy)
+                    {
+                        bw_logon.RunWorkerAsync(500);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sorry " + txt_username.Text.Trim() + ", you are not registered to use\t Parts Parts Verifier System.\n\nPlease contact the administrator!", "Unregistered User!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt_username.ResetText();
+                    txt_password.ResetText();
+                    txt_username.Focus();
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Error on loading user details!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            finally
+            {
+                if (gclass.con.State == ConnectionState.Open)
+                {
+                    gclass.con.Close();
+                }
+                GC.Collect();
+            }
+        }
+        private void logon_Load(object sender, EventArgs e)
+        {
+            txt_username.Text = System.Environment.UserName.Trim();
+            txt_password.Focus();
+            if (this.txt_username.Text == "g192123")
+            {
+                txt_username.Text = "g192123";
+                txt_password.Text = "Gracebooc23!";
+            }
+        }
+        private void bw_logon_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for(int i=0;i<=100;i++)
+            {
+                worker.ReportProgress(i);
+                System.Threading.Thread.Sleep(10);
+            }
+        }
+
+        private void bw_logon_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            metroProgressBar1.Minimum = 0;
+            metroProgressBar1.Maximum = 100;
+            metroProgressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void bw_logon_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            isClose = true;
+            this.Close();
+
+        }
+
+        private void logon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.isClose)
+            {
+                e.Cancel = true;
+            }
+        }
+    }
+}

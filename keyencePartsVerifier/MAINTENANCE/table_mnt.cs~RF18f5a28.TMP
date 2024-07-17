@@ -1,0 +1,142 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class table_mnt : Form
+    {
+        public table_mnt()
+        {
+            InitializeComponent();
+        }
+        DataTable dt;
+        BindingSource bind;
+        private void table_mnt_Load(object sender, EventArgs e)
+        {
+            _loadTable();
+        }
+        private void _loadTable()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT tableID, rtrim(tableName) as tableName, rtrim(updatedBy) as updatedBy, "+
+                    "rtrim(updatedByName) as updatedByName, datetimeUpdated FROM tbl_web_table", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                bind = new BindingSource();
+                bind.DataSource = dt;
+                data.DataSource = dt;
+
+                data.Columns["tableID"].HeaderText = "ID";
+                data.Columns["tableName"].HeaderText = "Table Name";
+                data.Columns["updatedBy"].HeaderText = "Updated By";
+                data.Columns["updatedByName"].HeaderText = "Updated By Name";
+                data.Columns["datetimeUpdated"].HeaderText = "Date & Time Updated";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading tables! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                txt_status.Text = data.Rows.Count.ToString()+" row(s) found!";
+            }
+            else
+            {
+                txt_status.Text = "0 rows found!";
+            }
+        }
+
+        private void btn_add_table_Click(object sender, EventArgs e)
+        {
+            new MAINTENANCE.table_mnt_add().ShowDialog();
+            if(MAINTENANCE.table_mnt_add.isUpdated)
+            {
+                _loadTable();
+                txt_search_TextChanged(sender,e);
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            string txt2search = txt_search.Text.Replace("'", "''").Replace("[", "");
+            bind.Filter = "tableName like '%" + txt2search + "%'";
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                foreach(DataGridViewRow row in data.SelectedRows)
+                {
+                    new MAINTENANCE.table_mnt_edit(row.Cells["tableID"].Value.ToString(), row.Cells["tableName"].Value.ToString()).ShowDialog();
+                    if(MAINTENANCE.table_mnt_edit.isUpdated)
+                    {
+                        _loadTable();
+                        txt_search_TextChanged(sender,e);
+                    }
+                }
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            _loadTable();
+            txt_search_TextChanged(sender,e);
+        }
+
+        private void data_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            #region Coded by Constantino
+            if (e.Button == MouseButtons.Right)
+            {
+                data.Rows[e.RowIndex].Selected = true;
+                data.CurrentCell = this.data.Rows[e.RowIndex].Cells[1];
+                cms_options.Show(this.data, e.Location);
+                cms_options.Show(Cursor.Position);
+            }
+            #endregion
+        }
+
+        private void copySelectedFeederToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in data.SelectedRows)
+            {
+                Clipboard.SetText(row.Cells["ceit"].Value.ToString().Trim());
+            }
+        }
+
+        private void addNewFeederToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MAINTENANCE.table_mnt_add().ShowDialog();
+            if (MAINTENANCE.table_mnt_add.isUpdated)
+            {
+                _loadTable();
+                txt_search_TextChanged(sender, e);
+            }
+        }
+    }
+}

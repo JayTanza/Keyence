@@ -1,0 +1,293 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_parts_assign_add : Form
+    {
+        public feeder_parts_assign_add()
+        {
+            InitializeComponent();
+        }
+        int selector = 0;
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void feeder_parts_assign_add_Load(object sender, EventArgs e)
+        {
+            if (!bw_open.IsBusy)
+            {
+                bw_open.RunWorkerAsync(500);
+            }
+        }
+
+        private void bw_open_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            for(int i=0;i<=5;i++)
+            {
+                worker.ReportProgress(i);
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+
+        private void bw_open_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if(selector==1)
+            {
+                txt_status.Text = "Please wait. . .";
+                _loadProducts();
+                cb_product.ResetText();
+            }
+            else if(selector==2)
+            {
+                _loadLine();
+                cb_line.ResetText();
+            }
+            else if(selector==3)
+            {
+                _loadTable();
+                cb_table.ResetText();
+            }
+            else if(selector==4)
+            {
+                _loadFeeder();
+                cb_feeder.ResetText();
+            }
+            else if(selector==5)
+            {
+                _loadParts();
+                cb_parts.ResetText();
+            }
+        }
+
+        private void bw_open_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            selector++;
+
+            if(selector<=5)
+            {
+                bw_open.RunWorkerAsync(500);
+            }
+            else
+            {
+                toolStripProgressBar1.Visible = false;
+                txt_status.Text = "Ready!";
+                cb_feeder.Enabled = true;
+                cb_line.Enabled = true;
+                cb_parts.Enabled = true;
+                cb_product.Enabled = true;
+                cb_table.Enabled = true;
+                btn_add.Enabled = true;
+                btn_close.Enabled = true;
+            }
+            
+        }
+        private void _loadProducts()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT DISTINCT productID, rtrim(productName) as productName FROM tbl_web_products ORDER by productName", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da=new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                cb_product.DataSource = dt;
+                cb_product.DisplayMember = "productName";
+                cb_product.ValueMember = "productID";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on loading products! Please contact administrator! Details: "+ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void _loadLine()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT DISTINCT lineID, rtrim(lineName) as lineName FROM tbl_web_line ORDER by lineName", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                cb_line.DataSource = dt;
+                cb_line.DisplayMember = "lineName";
+                cb_line.ValueMember = "lineID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading line! Please contact administrator! Details: " + ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void _loadTable()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT DISTINCT tableID, rtrim(tableName) as tableName FROM tbl_web_table ORDER by tableName", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                cb_table.DataSource = dt;
+                cb_table.DisplayMember = "tableName";
+                cb_table.ValueMember = "tableID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading table! Please contact administrator! Details: " + ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void _loadFeeder()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT DISTINCT feederID, rtrim(feederName) as feederName FROM tbl_web_feeder ORDER by feederName", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                cb_feeder.DataSource = dt;
+                cb_feeder.DisplayMember = "feederName";
+                cb_feeder.ValueMember = "feederID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading feeder! Please contact administrator! Details: " + ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void _loadParts()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT DISTINCT ceit as partsID, rtrim(ceit) as partsName FROM kpsapps.rinks21.dbo.mcitap ORDER by ceit", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                cb_parts.DataSource = dt;
+                cb_parts.DisplayMember = "partsName";
+                cb_parts.ValueMember = "partsID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading parts! Please contact administrator! Details: " + ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(cb_product.Text.Trim()) || string.IsNullOrEmpty(cb_product.SelectedValue.ToString().Trim()))
+            {
+                MessageBox.Show("Please select product!", "Field Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_product.Focus();
+                return;
+            }
+
+            if(string.IsNullOrEmpty(cb_line.Text.Trim()) || string.IsNullOrEmpty(cb_line.SelectedValue.ToString().Trim()))
+            {
+                MessageBox.Show("Please select line!", "Field Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_line.Focus();
+                return;
+            }
+
+            if(string.IsNullOrEmpty(cb_table.Text.Trim()) || string.IsNullOrEmpty(cb_table.SelectedValue.ToString().Trim()))
+            {
+                MessageBox.Show("Please select table!", "Field Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_table.Focus();
+                return;
+            }
+
+            if(string.IsNullOrEmpty(cb_feeder.Text.Trim()) || string.IsNullOrEmpty(cb_feeder.SelectedValue.ToString().Trim()))
+            {
+                MessageBox.Show("Please select feeder!", "Field Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_feeder.Focus();
+                return;
+            }
+
+            if(string.IsNullOrEmpty(cb_parts.Text.Trim()) || string.IsNullOrEmpty(cb_parts.SelectedValue.ToString().Trim()))
+            {
+                MessageBox.Show("Please select parts!", "Field Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cb_parts.Focus();
+                return;
+            }
+
+            if(_inquireAssignment(cb_product.Text, cb_line.Text, cb_table.Text, cb_feeder.Text, cb_parts.Text)==0)
+            {
+
+            }
+
+        }
+        private int _inquireAssignment(string product, string line, string table, string feeder, string parts)
+        {
+            Int32 count=1;
+            try
+            {
+                SqlCommand cmdC = new SqlCommand("SELECT COUNT(*) FROM tbl_web_feeder_parts_mnt WHERE productName=@p "+
+                    "AND lineName=@l AND tableName=@t AND feederName=@f AND partsName=@parts", gclass.con);
+                gclass.con.Open();
+                cmdC.Parameters.AddWithValue("@p", product.Trim());
+                cmdC.Parameters.AddWithValue("@l", line.Trim());
+                cmdC.Parameters.AddWithValue("@t", table.Trim());
+                cmdC.Parameters.AddWithValue("@f", feeder.Trim());
+                cmdC.Parameters.AddWithValue("@parts", parts.Trim());
+                count = (Int32)cmdC.ExecuteScalar();
+                gclass.con.Close();
+
+                if(count>0)
+                {
+                    MessageBox.Show("Product:   "+cb_product.Text.Trim()+"\n"+
+                                    "Line:      "+cb_line.Text.Trim()+"\n"+
+                                    "Table:     "+cb_table.Text.Trim()+"\n"+
+                                    "Feeder: "+cb_feeder.Text.Trim()+"\n"+
+                                    "Parts: "+cb_parts.Text.Trim()+"\n"+
+                                    "This assignment already EXISTS! Please verify!", "Assignment Already Exists!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on inquiring Assignments! Details: "+ex.Message, "Error: SQL", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+            return count;
+        }
+
+        private void _addAssignment(string product, string line, string table, string feeder, string parts)
+        {
+            try
+            {
+                SqlCommand cmdI = new SqlCommand("INSERT INTO tbl_web_feeder_parts_mnt(productName, lineName, tableName, feederName, partsName) "+
+                    "VALUES(@p, @l, @t, @f, @parts)", gclass.con);
+                gclass.con.Open();
+                cmdI.Parameters.AddWithValue("@p", product.Trim());
+                cmdI.Parameters.AddWithValue("@l", line.Trim());
+                cmdI.Parameters.AddWithValue("@t", table.Trim());
+                cmdI.Parameters.AddWithValue("@p", product.Trim());
+                cmdI.Parameters.AddWithValue("@p", product.Trim());
+                gclass.con.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on adding Assignments! Details: " + ex.Message, "Error: SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

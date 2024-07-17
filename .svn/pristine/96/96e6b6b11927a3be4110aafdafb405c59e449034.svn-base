@@ -1,0 +1,975 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PBarcoma</name>
+    </assembly>
+    <members>
+        <member name="M:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.CheckDomainAccount(System.String,System.String,System.String)">
+            <summary>
+            Overview : Check if the active directory account is exists in the domain provided.
+            Author   : Paul Barcoma
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="currentDomain"></param>
+            <returns></returns>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetUsername">
+            <summary>
+            Overview : Get the current active directory username
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetCurrentDomain">
+            <summary>
+            Overview : Get the current active directory domain
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetGivenName">
+            <summary>
+            Overview : Get GivenName 
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetSurname">
+            <summary>
+            Overview : Get Surname
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetMiddleName">
+            <summary>
+            Overview : Get Middlename
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ActiveDirectoryHelper.GetEmailAddress">
+            <summary>
+            Overview : Get Email Address
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetUsername">
+            <summary>
+            Overview : Get the current active directory username
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetCurrentDomain">
+            <summary>
+            Overview : Get the current active directory domain
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetComputerName">
+            <summary>
+            Overview : Get Computer name
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetOSVersion">
+            <summary>
+            Overview : Get OS Version
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetApplicationVersion">
+            <summary>
+            Overview : Get the current System version
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.ApplicationHelper.ComputerInformation.GetIPAddress">
+            <summary>
+            Overview : Get the current ip of the computer
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.ConvertDataTableToList.ConvertDataTable``1(System.Data.DataTable)">
+            <summary>
+            Overview : Convert DataTable to List
+            Author : Paul Barcoma
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.ConvertListToDataTable.ToDataTable``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Overview : Convert List to DataTable
+            Author : Paul Barcoma
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.ExportToExcel(System.Data.DataTable,System.String)">
+            <summary>
+            Overview : Data Table Export To Excel 
+            Author : Paul Barcoma
+            </summary>
+            <param name="dataTable"></param>
+            <param name="sheetName"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.ExportToExcel(System.Windows.Forms.DataGridView,System.String)">
+            <summary>
+            Overview : List Export To Excel 
+            Author : Paul Barcoma
+            </summary>
+            <param name="dataGridView"></param>
+            <param name="sheetName"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.UploadExcelToDataGridView(System.Windows.Forms.OpenFileDialog,System.String,System.String)">
+            <summary>
+            Overview : List Export To Excel 
+            Author : Paul Barcoma
+            </summary>
+            <param name="openFileDialog"></param>
+            <param name="sheetName"></param>
+            <param name="colRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.UploadExcelToDataGridViewWithListSheet(System.Windows.Forms.OpenFileDialog)">
+            <summary>
+            Overview : Upload Excel file to datagridview with many sheets
+            Author : Paul Barcoma
+            </summary>
+            <param name="openFileDialog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.UploadExcelToDataGridViewWithListSheet(System.Windows.Forms.OpenFileDialog,System.String,System.String)">
+            <summary>
+            Overview : Filter the data to upload in datagridview
+            Author : Paul Barcoma
+            </summary>
+            <param name="openFileDialog"></param>
+            <param name="rowName"></param>
+            <param name="colName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.UploadExcelToDataGridViewFilter(System.Windows.Forms.OpenFileDialog,System.String,System.String,System.String)">
+            <summary>
+            Overview : Upload Excel to Datagridview with filter column
+            Author : Paul Barcoma
+            </summary>
+            <param name="openFileDialog"></param>
+            <param name="sheetName"></param>
+            <param name="rowStartFilter"></param>
+            <param name="rowEndFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.LoadCrystalReport">
+            <summary>
+            Overview :Load black Crystal Report
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.DataGridViewToPrinter(PBarcoma.WindowsTools.PBDataGridView,System.Drawing.Printing.PrintDocument,System.DateTime)">
+            <summary>
+            Overview : Print data from PBdatagridview
+            Author : Paul Barcoma
+            </summary>
+            <param name="pbDataGridView"></param>
+            <param name="printDocument"></param>
+            <param name="datePrinted"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.CrossPlatForm.DataGridViewToPrinter(System.Windows.Forms.DataGridView,System.Drawing.Printing.PrintDocument,System.DateTime)">
+            <summary>
+            Overview : Print data from basic datagridview
+            Author : Paul Barcoma
+            </summary>
+            <param name="pbDataGridView"></param>
+            <param name="printDocument"></param>
+            <param name="datePrinted"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.DataGridViewHelper.DisableColumnSort(System.Windows.Forms.DataGridView)">
+            <summary>
+            Overview : Disable sorting in column
+            Author : Paul Barcoma
+            </summary>
+            <param name="dataGridView"></param>
+        </member>
+        <member name="T:PBarcoma.ApplicationHelper.DataGridViewHelper.MultiHeader">
+            <summary>
+            Overview : Create Merge cell header
+                      and dont forget to initialize the MultiHeaderRendere Class
+                      to effect the merge cell header
+            </summary>
+        </member>
+        <member name="T:PBarcoma.ApplicationHelper.DataGridViewHelper.MultiHeaderRenderer">
+            <summary>
+            Overview : To Implement the Multiheader Settings
+            </summary>
+        </member>
+        <member name="T:PBarcoma.ApplicationHelper.DataTypeHelper">
+            <summary>
+            Overview : To help the user increment any type of datatype
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.DataTypeHelper.Initialize">
+            <summary>
+            Overview : Initialize component
+            Author : Paul Barcoma
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.DataTypeHelper.IncrementString(System.String)">
+            <summary>
+            Overview : Auto Increment the string
+            Author : Paul Barcoma
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.EncryptDecrypt.GetHashKey(System.String)">
+            <summary>
+            Overview : Generate hashKey Value
+            Author : Paul Barcoma
+            </summary>
+            <param name="hashKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.EncryptDecrypt.Encrypt(System.String)">
+            <summary>
+            Overview : Encrypt your string Value
+            Author   : Paul Barcoma
+            </summary>
+            <param name="dataToEncrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.EncryptDecrypt.Decrypt(System.String)">
+            <summary>
+            Overview : Decrypt your string value
+            Author   : Paul Barcoma
+            </summary>
+            <param name="encryptedString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.FormHelper.Initialize">
+            <summary>
+            Overview : To initialize the class 
+            Author   : Paul Barcoma
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.FormHelper.ShowLoadingForm(System.Windows.Forms.Form)">
+            <summary>
+            Overview : To display the load messageBox 
+            Note : Avoid using it on constructor
+            Author : Paul Barcoma
+            </summary>
+            <param name="parentForm"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.FormHelper.HideLoadingForm">
+            <summary>
+            Overview : Hide Loading message
+            Note : this will only applicable if their is an open Loading MessageBox
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.FormHelper.OpenChildForm(System.Windows.Forms.Form,System.Windows.Forms.Form,System.Windows.Forms.DockStyle,System.Windows.Forms.FormBorderStyle)">
+            <summary>
+            Overview : Display the form in MDI Container 
+            Author   : Paul Barcoma
+            </summary>
+            <param name="mDIChildForm"></param>
+            <param name="mDIParent"></param>
+            <param name="childDockStyle"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.FormHelper.OpenChildForm(System.Windows.Forms.Form,System.Windows.Forms.Form)">
+            <summary>
+            Overview : Display the form in MDI Container With no Border
+            Author   : Paul Barcoma
+            </summary>
+            <param name="mDIChildForm"></param>
+            <param name="mDIParent"></param>
+            <param name="formBoderStyle"></param>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBDragControl.Initialize">
+            <summary>
+            Overview : Initialize this Constructor
+            Author   : Paul Barcoma
+            Email    : paulamocrab@gmail.com
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBDragControl.DragControl(System.Windows.Forms.Form,System.Windows.Forms.Control)">
+            <summary>
+            Overview : Drag No Border Form
+            Author   : Paul Barcoma
+            Email    : paulamocrab@gmail.com
+            </summary> 
+            <param name="formToDrag"></param>
+            <param name="nameControl"></param>
+        </member>
+        <member name="T:PBarcoma.ApplicationHelper.PBMessageBox">
+            <summary>
+            Author : Paul Barcoma
+            Email  : paulamocrab@gmail.com
+            </summary>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBMessageBox.Show(System.String)">
+            <summary>
+            Overview :  Displays a message box with specified text.
+            Author : Paul Barcoma
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBMessageBox.Show(System.String,System.String)">
+            <summary>
+            Overview :  Displays a message box with specified text and caption.
+            Author : Paul Barcoma
+            </summary>
+            <param name="text"></param>
+            <param name="caption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <param name="text"></param>
+            <param name="caption"></param>
+            <param name="messageBoxButtons"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Overview :    Displays a message box with specified text, caption, buttons, and icon.
+            Author : Paul Barcoma
+            </summary>
+            <param name="text"></param>
+            <param name="caption"></param>
+            <param name="messageBoxButtons"></param>
+            <param name="messageBoxIcon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PBarcoma.ApplicationHelper.PBMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            Overview :  Displays a message box with the specified text, caption, buttons, icon, and default button.
+            Author : Paul Barcoma 
+            </summary>
+            <param name="text"></param>
+            <param name="caption"></param>
+            <param name="messageBoxButtons"></param>
+            <param name="messageBoxIcon"></param>
+            <param name="messageBoxDefaultButton"></param>
+            <returns></returns>
+        </member>
+        <member name="F:PBarcoma.FormObjects.frmExcelSheetList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmExcelSheetList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmExcelSheetList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PBarcoma.FormObjects.frmExportToExcel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmExportToExcel.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmExportToExcel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PBarcoma.FormObjects.frmLoadCrystalReport.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmLoadCrystalReport.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmLoadCrystalReport.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PBarcoma.FormObjects.frmLoading.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmLoading.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmLoading.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PBarcoma.FormObjects.frmMessageBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmMessageBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.FormObjects.frmMessageBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:PBarcoma.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Abort">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnAdd">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnBarcode">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnBarcodeScanner">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnClose">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnCloseFolder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnCloseFolder21">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnCloseFolder24">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnDispose">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnEdit">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnExportExcel">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnImport">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnOK">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnOpenFolder">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnOpenFolder21">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnOpenFolder24">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnPrinter">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnRefresh">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnSave">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnSearch">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnUsage">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.btnView">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Error">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.expand_arrow1600">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.expand_arrow1600_1Xz_icon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Ignore">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Information">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.LoginIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.No">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Question">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Retry">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Warning">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.Properties.Resources.Yes">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBAccordion">
+            <summary>
+            Overview : Accordion Tools
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.WindowsTools.PBAccordion.CollapseAccordion">
+            <summary>
+            Overview : To Hide the content of the body
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleFlatAppearance">
+            <summary>
+            Overview : Change the TitleApperance
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleFlatStyle">
+            <summary>
+            Overview : Change the Title To Flat Style
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleFont">
+            <summary>
+            Overview : Change the TitleText Font
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleForColor">
+            <summary>
+            Overview : Change the TitleText Font Color
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleBackColor">
+            <summary>
+            Overview : Change the TitleText Back Color
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleTextAlign">
+            <summary>
+            Overview : Change the TitleText Alignment
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleText">
+            <summary>
+            Overview : Set Text name
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleTextIconAlign">
+            <summary>
+            Overview : Change the Alignment of the Icon
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBAccordion.TitleShowTextIcon">
+            <summary>
+            Overview : Either to display of hide the Icon
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBButton.DisplayImage">
+            <summary>
+            Overview : Display Default Image for Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBCircularProgressBar">
+            <summary>
+            Overview : Customize ProgressBar
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="F:PBarcoma.WindowsTools.PBCircularProgressBar.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PBarcoma.WindowsTools.PBCircularProgressBar.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PBarcoma.WindowsTools.PBCircularProgressBar.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBCircularProgressBar.Value">
+            <summary>
+            Overview : Set Value of the progressbar
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBCircularProgressBar.MaximumValue">
+            <summary>
+            Overview : Set the Maximum value of the Progressbar
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBCircularProgressBar.ShowPercentage">
+            <summary>
+            Overview : Either to show the percentage of not
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBCircularProgressBar.IsMarquee">
+            <summary>
+            Overview : To Marquee the Progressbar
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBComboBox">
+            <summary>
+            Overview : Customize ComboBox
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBComboBox.CharacterCasing">
+            <summary>
+            Overview : Set the character to upper,lower or any 
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBComboBox.ReadOnly">
+            <summary>
+            Overview : Gets or sets a value indicating whether text in the text box is read-only.
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBComboBox.MessageError">
+            <summary>
+            Overview : Display Error Text Message when the textbox is null 
+            But need to active the DisplayError Property
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBComboBox.IsErrorMessage">
+            <summary>
+            Overview : if the user want number and two decimal places
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBDataGridView">
+            <summary>
+            Overview : Customize DataGridview
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButton1">
+            <summary>
+            Overview : DataGridview Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButton2">
+            <summary>
+            Overview : DataGridview Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButton3">
+            <summary>
+            Overview : DataGridview Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButton4">
+            <summary>
+            Overview : DataGridview Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.LabelCount">
+            <summary>
+            Overview : To count all the records in the datagridview
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.IsNumberOnly">
+            <summary>
+            Overview : Only number allowed when input
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDataGridView.IsMoneyOnly">
+            <summary>
+            Overview : Only Money type allow when input
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="E:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButtonClick1">
+            <summary>
+            Overview : Button Click
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="E:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButtonClick2">
+            <summary>
+            Overview : Button Click
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="E:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButtonClick3">
+            <summary>
+            Overview : Button Click
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="E:PBarcoma.WindowsTools.PBDataGridView.DataGridViewButtonClick4">
+            <summary>
+            Overview : Button Click
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.DataGridViewButton">
+            <summary>
+            Overview : Fields for Button
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.DisplayButton">
+            <summary>
+            Overview : Display Button 
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.HeaderText">
+            <summary>
+            Overview : Header Text
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.Text">
+            <summary>
+            Overview : Button Text
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.Name">
+            <summary>
+            Overview : Button Name
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.AutoSizeColumnMode">
+            <summary>
+            Overiview : Autosize Column 
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.DataGridViewButton.Width">
+            <summary>
+            Overview : Set Column Width
+            Author: Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBDateTimePicker.IsMinDateToday">
+            <summary>
+            Overview : if the user want only numbers
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBGetDateTime">
+            <summary>
+            Overview : Customize DateTime
+            </summary>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBPictureBox">
+            <summary>
+            Overview : Customize Picture Box
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBPictureBox.IsCircle">
+            <summary>
+            Overview : Either to set the picture to circle
+            Author   : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBRichTextBox.MessageError">
+            <summary>
+            Overview : Display Error Text Message when the textbox is null 
+            But need to active the DisplayError Property
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBRichTextBox.IsErrorMessage">
+            <summary>
+            Overview : if the user want number and two decimal places
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.WindowsTools.PBRoundButton.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Overview : change the edges of the button to round
+            Author : Paul Barcoma
+            Date : 02/27/2020
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:PBarcoma.WindowsTools.PBTextBox">
+            <summary>
+            Overview : Customize TextBox
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="M:PBarcoma.WindowsTools.PBTextBox.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Overview : To allow the user to select the datagridview with out focusing the datagridview.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.DataGridView">
+            <summary>
+            Overview : To allow the user to select the datagridview with out focusing the datagridview.
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.OnlyNumbers">
+            <summary>
+            Overview : if the user want only numbers
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.OnlyNumbersAndDot">
+            <summary>
+            Overview : if the user want number and one Dot
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.OnlyMoney">
+            <summary>
+            Overview : if the user want number and two decimal places
+            Author : Paul Barcoma
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.MessageError">
+            <summary>
+            Overview : Display Error Text Message when the textbox is null 
+            But need to active the DisplayError Property
+            </summary>
+        </member>
+        <member name="P:PBarcoma.WindowsTools.PBTextBox.IsErrorMessage">
+            <summary>
+            Overview : if the user want number and two decimal places
+            Author : Paul Barcoma
+            </summary>
+        </member>
+    </members>
+</doc>

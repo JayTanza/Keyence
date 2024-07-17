@@ -1,0 +1,157 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking_byTables2 : Form
+    {
+        public actualChecking_byTables2()
+        {
+            InitializeComponent();
+        }
+        string conString = ConfigurationManager.ConnectionStrings["keyencePartsVerifier.Properties.Settings.handHeldDBConnectionString"].ConnectionString;
+        transDataContext context = new transDataContext();
+        List<tableIncludedClass> listTables;
+        void _loadModels()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z).ToList();
+            
+            //load models
+            foreach (var item in tbl)
+            {
+                if (!cb_model.Items.Contains(item.modelName.Trim()))
+                {
+                    cb_model.Items.Add(item.modelName.Trim());
+                }
+            }
+        }
+
+
+        void _loadIncludedTables(string model)
+        {
+            listTables = new List<tableIncludedClass>();
+            using (var sqlCon=new SqlConnection(conString))
+            {
+                SqlCommand cmdS = new SqlCommand("sp_tbl_web2_maintenance_s_tables", sqlCon);
+                cmdS.CommandType = CommandType.StoredProcedure;
+                cmdS.Parameters.AddWithValue("@model", model);
+                sqlCon.Open();
+                SqlDataReader dr = cmdS.ExecuteReader();
+                while (dr.Read())
+                {
+                    tableIncludedClass newRow = new tableIncludedClass();
+                    newRow.table = dr["tables"].ToString().Trim();
+                    listTables.Add(newRow);
+                }
+                dr.Close();
+            }
+
+            //dataGridView1.DataSource = listTables;
+            foreach (Control gb in pnl_line1.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            foreach (Control gb in pnl_line2.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            foreach (Control gb in pnl_line3.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            
+
+        }
+        private void actualChecking_byTables2_Load(object sender, EventArgs e)
+        {
+            _loadModels();
+
+        }
+
+        private void cb_model_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_model_display.Text = cb_model.Text;
+            _loadIncludedTables(txt_model_display.Text);
+        }
+
+        private void btn_start_new_period_Click(object sender, EventArgs e)
+        {
+            //_loadIncludedTables("77980T100");
+            
+        }
+        
+    }
+}

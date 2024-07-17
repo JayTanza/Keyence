@@ -1,0 +1,177 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class main : Form
+    {
+        public main()
+        {
+            InitializeComponent();
+        }
+        #region Open forms in MDI
+        public void OpenMDIChildForm(Form form)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == form.GetType())
+                {
+                    frm.Focus();
+                    return;
+                }
+            }
+            form.MdiParent = this;
+            form.Show();
+        }
+        #endregion
+        private void main_Load(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is MdiClient)
+                {
+                    control.BackColor = Color.White;
+                    break;
+                }
+            }
+        }
+        public void OpenChild(Form form)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == form.GetType())
+                {
+                    frm.Focus();
+                    return;
+                }
+                //frm.Close();
+            }
+            //form.WindowState = FormWindowState.Maximized;
+            form.Show();
+        }
+        private void printBarcodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.printBarcode());
+        }
+
+        private void productListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.product_mnt());
+        }
+
+        private void lineListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.line_mnt());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txt_DT.Text =DateTime.Now.ToLongDateString()+"  -  " +DateTime.Now.ToLongTimeString();
+        }
+
+        private void main_Shown(object sender, EventArgs e)
+        {
+            new logon().ShowDialog();
+            //new loader().Show();
+            txt_user.Text = gclass.gs_user;
+            txt_name.Text = gclass.gs_funame;
+        }
+
+        private void tableListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.table_mnt());
+        }
+
+        private void feederListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.feeder_mnt());
+        }
+
+        private void partsListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.parts_mnt());
+        }
+
+        private void feederPartsAssignmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.feeder_parts_assign());
+        }
+
+        private void barcodeScannerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChild(new INQUIRY.scanner());
+        }
+
+        private void verifyPartsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //OpenMDIChildForm(new TRANSACTION.verifyParts());
+            new TRANSACTION.verifyParts().ShowDialog();
+        }
+
+        private void keyenceTransactionTableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.transTable());
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.printBarcode_multi());
+        }
+
+        private void btn_barcode_Click(object sender, EventArgs e)
+        {
+            cms_barcode.Show(Cursor.Position.X, Cursor.Position.Y);
+        }
+
+        private void printBarcodeModelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenChild(new PRINTBARCODE.printBarcode_model());
+        }
+
+        private void printBarcodeLineMachineTableToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new PRINTBARCODE.printBarcode_lineMachineTable());
+        }
+
+        private void printBarcideFeederLocationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new PRINTBARCODE.printBarcode_feederLocation());
+        }
+
+        private void partsAssignmentListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.feeder_parts_assign2());
+        }
+
+        private void actualCheckingProgressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new TRANSACTION.actualChecking());
+        }
+
+        private void partsCheckingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barcodeScannerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenChild(new INQUIRY.scanner());
+        }
+
+        private void uploadPartsAssignmentExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChildForm(new MAINTENANCE.uploadExcel());
+        }
+
+        private void main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

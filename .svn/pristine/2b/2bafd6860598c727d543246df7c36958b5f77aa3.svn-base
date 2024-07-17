@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled sorted 
+ca81bc2d0f3b189805a573169450fa1cdfe9ec07 refs/remotes/origin/Task/#01082021
+123475f5907719493c4cf5573cdc393662f9f061 refs/remotes/origin/Task/#01132020
+f508beab0ec047cbad217758bd655b3f33bcad99 refs/remotes/origin/Task/#01212020
+f4e17861f6dd58abfc78bbc438b54a348cfcb538 refs/remotes/origin/Task/#01262021
+e917a03c388cae134f4b9365ae17c79b1b21dffc refs/remotes/origin/Task/#06102020
+ad6b97cf3ad44ca5bbee46a0e5725a67582d72d2 refs/remotes/origin/Task/#11212020
+0ad51e9ca1842d783e07724cf6705ac5c1b67297 refs/remotes/origin/Task/#20210705
+08d0a686b128562b68b33d15f00d58594d60811a refs/remotes/origin/Task/#20210817
+08d0a686b128562b68b33d15f00d58594d60811a refs/remotes/origin/Task/#20210820
+9774589fd9ee32725bcee4e78926accd9a7db044 refs/remotes/origin/development
+e917a03c388cae134f4b9365ae17c79b1b21dffc refs/remotes/origin/master

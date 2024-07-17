@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_parts_assign_add : Form
+    {
+        public feeder_parts_assign_add()
+        {
+            InitializeComponent();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

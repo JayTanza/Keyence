@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_parts_assign : Form
+    {
+        public feeder_parts_assign()
+        {
+            InitializeComponent();
+        }
+
+        private void feeder_parts_assign_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void _loadFeederPartsMaintenance()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT productName, lineName, tableName, feederName, partsName, datetimeUpdated FROM tbl_web_feeder_parts_assign ORDER BY datetimeUpdated", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on loading feeder and parts maintenance! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

@@ -1,0 +1,294 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking_byTables2 : Form
+    {
+        #region classes
+        public class Line
+        {
+            public static string l1 = "Line 1";
+            public static string l2 = "Line 2";
+            public static string l3 = "Line 3";
+        }
+        public class Table
+        {
+            public static string t1 = "Table 1";
+            public static string t2 = "Table 2";
+            public static string t3 = "Table 3";
+            public static string t4 = "Table 4";
+        }
+        #endregion
+        public actualChecking_byTables2()
+        {
+            InitializeComponent();
+        }
+        string conString = ConfigurationManager.ConnectionStrings["keyencePartsVerifier.Properties.Settings.handHeldDBConnectionString"].ConnectionString;
+        transDataContext context = new transDataContext();
+        List<tableIncludedClass> listTables;
+        void _loadModels()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z).ToList();
+            
+            //load models
+            foreach (var item in tbl)
+            {
+                if (!cb_model.Items.Contains(item.modelName.Trim()))
+                {
+                    cb_model.Items.Add(item.modelName.Trim());
+                }
+            }
+        }
+
+
+        void _loadIncludedTables(string model)
+        {
+            listTables = new List<tableIncludedClass>();
+            using (var sqlCon=new SqlConnection(conString))
+            {
+                sqlCon.Open();
+                SqlCommand cmdPeriod = new SqlCommand("sp_getCurrentPeriodID2", sqlCon);
+                cmdPeriod.CommandType = CommandType.StoredProcedure;
+                cmdPeriod.Parameters.AddWithValue("@model", model);
+                string period = "No Period"; string status = "";
+                SqlDataReader drPeriod = cmdPeriod.ExecuteReader();
+                while (drPeriod.Read())
+                {
+                    period = drPeriod["sPeriod"].ToString().Trim();
+                    status = drPeriod["status"].ToString().Trim();
+                }
+                drPeriod.Close();
+                //if (string.IsNullOrEmpty(period))
+                //{
+                //    txt_period_per_model.Text = "No Period";
+                //}
+                //else
+                //{
+                txt_period_per_model.Text = period;
+                txt_status_display.Text = status;
+                
+                //}
+
+
+                SqlCommand cmdS = new SqlCommand("sp_tbl_web2_maintenance_s_tablesWithStatus", sqlCon);
+                cmdS.CommandType = CommandType.StoredProcedure;
+                cmdS.Parameters.AddWithValue("@model", model);
+                cmdS.Parameters.AddWithValue("@period", period);
+                SqlDataReader dr = cmdS.ExecuteReader();
+                while (dr.Read())
+                {
+                    tableIncludedClass newRow = new tableIncludedClass();
+                    newRow.table = dr["tables"].ToString().Trim();
+                    newRow.totalCount = dr["totalCount"].ToString().Trim();
+                    newRow.checkedCount = dr["checkedCount"].ToString().Trim();
+                    listTables.Add(newRow);
+                }
+                dr.Close();
+            }
+
+            //dataGridView1.DataSource = listTables;
+            #region Line 1
+            foreach (Control gb in pnl_line1.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Text = btn.Tag.ToString();
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    //btn.Text = btn.Tag.ToString() + "\n" + table.checkedCount + " of " + table.totalCount;
+                                    btn.Text = btn.Tag.ToString() + "\n"+table.checkedCount + " of " + table.totalCount;
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+            #region Line 2
+            foreach (Control gb in pnl_line2.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+            #region Line 3
+            foreach (Control gb in pnl_line3.Controls)
+            {
+                if (gb is GroupBox)
+                {
+                    foreach (Control ctrl in ((GroupBox)gb).Controls)
+                    {
+                        if (ctrl is Button)
+                        {
+                            Button btn = ctrl as Button;
+                            btn.BackColor = Color.DimGray;
+                            btn.Enabled = false;
+                            foreach (var table in listTables)
+                            {
+                                if (btn.Name.ToString().Trim() == "a" + table.table.Trim())
+                                {
+                                    //MessageBox.Show(btn.Name.ToString().Trim() + "-" + table.table.Trim());
+                                    btn.BackColor = Color.White;
+                                    btn.Enabled = true;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+        }
+        void _viewCheckingStatusPerTable(string model, string line, string machine, string table)
+        {
+            actualChecking_byTables2_status form = new actualChecking_byTables2_status(model, line, machine, table, new SqlConnection(conString), txt_period_per_model.Text.Trim());
+            //form.StartPosition = FormStartPosition.CenterScreen;
+            form.ShowDialog();
+        }
+        private void actualChecking_byTables2_Load(object sender, EventArgs e)
+        {
+            _loadModels();
+        }
+
+        private void cb_model_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_model_display.Text = cb_model.Text;
+            _loadIncludedTables(txt_model_display.Text);
+        }
+
+        private void btn_start_new_period_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Start New");
+        }
+        #region line 1-CM602
+        private void a1_CM602_1_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM602", Table.t1);
+        }
+
+        private void a1_CM602_2_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM602", Table.t2);
+        }
+
+
+        private void a1_CM602_3_Click_1(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM602", Table.t3);
+        }
+
+        private void a1_CM602_4_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM602", Table.t4);
+        }
+        #endregion
+        #region Line 1-CM212
+        private void a1_CM212_1_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM212", Table.t1);
+        }
+
+        private void a1_CM212_2_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM212", Table.t2);
+        }
+
+        private void a1_CM212_3_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM212", Table.t3);
+        }
+
+        private void a1_CM212_4_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "CM212", Table.t4);
+        }
+        #endregion
+        #region Line 1-DT401
+        private void a1_DT401_1_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "DT401", Table.t1);
+        }
+
+        private void a1_DT401_2_Click(object sender, EventArgs e)
+        {
+            _viewCheckingStatusPerTable(cb_model.Text.Trim(), Line.l1, "DT401", Table.t2);
+        }
+        #endregion
+
+        private void txt_model_display_Enter(object sender, EventArgs e)
+        {
+            cb_model.Focus();
+        }
+
+        private void txt_period_per_model_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_status_display.Text.Contains("NEW"))
+            {
+                btn_stop_period.Enabled = true;
+                btn_start_new_period.Enabled = false;
+            }
+            else if (txt_status_display.Text.Contains("COMPLETE"))
+            {
+                btn_stop_period.Enabled = true;
+                btn_start_new_period.Enabled = false;
+            }
+            //else
+            //{
+            //    btn_stop_period.Enabled = false;
+            //    btn_start_new_period.Enabled = true;
+            //}
+        }
+
+        private void btn_stop_period_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Stop current period");
+        }
+
+    }
+    
+}

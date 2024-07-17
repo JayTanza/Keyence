@@ -1,0 +1,93 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class actualChecking : Form
+    {
+        public actualChecking()
+        {
+            InitializeComponent();
+        }
+        private transDataContext context = new transDataContext();
+        private void actualChecking_Load(object sender, EventArgs e)
+        {
+            //_loadTransaction();
+            _loadModel();
+            _loadLines();
+            _loadTable();
+            _loadMachine();
+            _loadType();
+            _columnHeader();
+        }
+        private void _loadTransaction()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z).OrderBy(m => m.transID);
+            data.DataSource = tbl;
+        }
+        private void _loadModel()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.modelName).Distinct().ToList();
+            cb_model.DataSource = tbl;
+        }
+        private void _loadLines()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.lineName).Distinct().ToList();
+            cb_line.DataSource = tbl;
+        }
+        private void _loadTable()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.tableName).Distinct().ToList();
+            cb_table.DataSource = tbl;
+        }
+        private void _loadMachine()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.machineName).Distinct().ToList();
+            cb_machine.DataSource = tbl;
+        }
+        private void _loadType()
+        {
+            var tbl = (from z in context.tbl_web2_transactions select z.type).Distinct().ToList();
+            cb_type.DataSource = tbl;
+        }
+
+        private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _filterData();
+        }
+        private void _filterData()
+        {
+            var tbl = (from z in context.tbl_web2_transactions
+                       where z.lineName == cb_line.Text & z.machineName==cb_machine.Text & z.tableName==cb_table.Text & z.modelName==cb_model.Text & z.type==cb_type.Text
+                       select new {z.transID, z.feederLocation, z.partsName, z.remarks, z.dt_trans });
+            data.DataSource = tbl;
+        }
+        private void _columnHeader()
+        {
+            if (data.DataSource != null)
+            {
+                data.Columns["transID"].Visible = false;
+                data.Columns["feederLocation"].HeaderText = "Feeder Location";
+                data.Columns["partsName"].HeaderText = "Parts (RINKS)";
+                data.Columns["remarks"].HeaderText = "Remarks";
+                data.Columns["dt_trans"].HeaderText = "Date & Time";
+                data.Columns["dt_trans"].DefaultCellStyle.Alignment = ContentAlignment.MiddleCenter;
+            }
+
+            
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+                txt_status.Text = data.Rows.Count.ToString() + " row(s) found!";
+        }
+    }
+}

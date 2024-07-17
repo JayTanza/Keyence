@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.TRANSACTION
+{
+    public partial class verifyParts : Form
+    {
+        public verifyParts()
+        {
+            InitializeComponent();
+        }
+
+        private void verifyParts_Load(object sender, EventArgs e)
+        {
+            _loadTransByBatch();
+            _verifyParts();
+        }
+        private void _loadTransByBatch()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT * FROM tbl_web_transaction", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                data.DataSource = dt;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error: SQL", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+        private void _verifyParts()
+        {
+            if(data.Rows.Count>0)
+            {
+                //foreach(DataGridViewRow row in data.Rows)
+                //{
+                //    ((DataGridViewImageCell)row.Cells["dg_image"]).Value = Image.FromFile("D:\\error.png");
+                //}
+                Image img=Image.FromFile("D:\\error.png");
+
+                data.Rows.Add(img, 1, 1, 1, 1, 1, 1);
+            }
+        }
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+    }
+}

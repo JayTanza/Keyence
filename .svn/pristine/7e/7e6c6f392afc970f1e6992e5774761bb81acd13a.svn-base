@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.PRINTBARCODE
+{
+    public partial class printBarcode_feederLocation : Form
+    {
+        public printBarcode_feederLocation()
+        {
+            InitializeComponent();
+        }
+        generateBarcode barcode = new generateBarcode();
+        private void chk_feeder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (data.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (chk_feeder.Checked)
+                    {
+                        row.Cells["dg_check"].Value = 1;
+                    }
+                    else
+                    {
+                        row.Cells["dg_check"].Value = 0;
+                    }
+                }
+            }
+        }
+
+        private void printBarcode_feederLocation_Load(object sender, EventArgs e)
+        {
+            loadFeederLocations();
+        }
+        private void loadFeederLocations()
+        {
+            transDataContext context = new transDataContext();
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select new {z.mnt_id, z.order_id, z.feederLocation }).OrderBy(m=>m.mnt_id).ThenBy(m=>m.order_id).ToList();
+            foreach (var s in tbl)
+            {
+                //MessageBox.Show(s.feederLocation);
+              
+                data.Rows.Add(0, s.feederLocation);
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void btn_printSelected_Click(object sender, EventArgs e)
+        {
+            barcode.Reset();
+            bool hasSelected = false;
+            if (data.Rows.Count > 0)
+            {
+                int order_id = 0;
+                lbl_status.Text = "Status: Printing. Please wait. . .";
+                foreach (DataGridViewRow row in data.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells["dg_check"].Value) == true)
+                    {
+                        order_id++;
+                        hasSelected = true;
+                        barcode.QRCode("Feeder", row.Cells["dg_feederLocation"].Value.ToString().Trim(), row.Cells["dg_feederLocation"].Value.ToString().Trim(), 4, order_id);
+                    }
+                }
+
+                if (hasSelected)
+                {
+                    barcode.printBarcode_feederLocation(0);
+                    lbl_status.Text = "Status: Print successful!";
+                    //MessageBox.Show("Print successful!", "Success!", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                }
+                else
+                {
+                    lbl_status.Text = "Status: Please select feeder!";
+                    //MessageBox.Show("Please select feeder location!", "None selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                lbl_status.Text = "Status: No feeder found!";
+                //MessageBox.Show("No feeder locations found!", "No rows found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void data_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            data.Rows[e.RowIndex].Cells["dg_check"].Value =Convert.ToInt32(data.Rows[e.RowIndex].Cells["dg_check"].Value) == 0 ? 1 : 0;
+        }
+
+        private void btn_printfeeder2_Click(object sender, EventArgs e)
+        {
+            int iFrom=Convert.ToInt32(nud_from.Value);
+            int iTo=Convert.ToInt32(nud_to.Value);
+            if (iFrom < iTo)
+            {
+                lbl_status2.Text = "Status: Printing. . .";
+                for (int i = iFrom; i < iTo; i++)
+                {
+                    barcode.QRCode("Feeder", i.ToString().Trim()+"L", i.ToString().Trim()+"L", 4, i);
+                    barcode.QRCode("Feeder", i.ToString().Trim()+"R", i.ToString().Trim()+"R", 4, i);
+                }
+
+                barcode.printBarcode_feederLocation(0);
+                lbl_status2.Text = "Status: Print successful!";
+            }
+        }
+    }
+}

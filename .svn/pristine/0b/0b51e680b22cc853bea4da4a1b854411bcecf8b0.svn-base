@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier
+{
+    public partial class testParent : Form
+    {
+        public testParent()
+        {
+            InitializeComponent();
+            childForm.FormClosing += new FormClosingEventHandler(childForm_FormClosing);
+        }
+
+        private void childForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            childForm.Parent.Dispose();
+        }
+        testChild childForm = new testChild();
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //TopLevel for form is set to false
+            childForm.TopLevel = false;
+            //Added new TabPage
+            TabPage tbp = new TabPage();
+            tbp.Text = childForm.Text;
+
+
+            //foreach (Control ctrl in childForm.Controls)
+            //{
+            //    if (tbp == null)
+            //    {
+                    tbp.Controls.Add(ctrl);
+                //}
+                //else
+                //{
+                    tbp.Controls.AddRange(childForm.Controls);
+                //}
+            //}
+           
+
+            tabControl1.TabPages.Add(tbp);
+            //Added form to tabpage
+            childForm.WindowState = FormWindowState.Maximized;
+            childForm.Show();
+        }
+    }
+}

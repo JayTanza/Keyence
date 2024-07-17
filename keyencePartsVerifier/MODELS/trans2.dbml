@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbPBCoreSolution" Class="trans2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=kpsprd;Initial Catalog=dbPBCoreSolution;Persist Security Info=True;User ID=sa" SettingsObjectName="keyencePartsVerifier.Properties.Settings" SettingsPropertyName="dbPBCoreSolutionConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_REX_SMTPickingList" Member="tbl_REX_SMTPickingLists">
+    <Type Name="tbl_REX_SMTPickingList">
+      <Column Name="SPL_Index" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SPL_LON_Index" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SPL_Series" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_ModelNo" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_Rinks_PO_No" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_PO_Qty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SPL_LotNo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_Destination" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_ModeofShipment" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_ShippingSchedule" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_WarehouseIncharge" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="SPL_Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UserLog" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

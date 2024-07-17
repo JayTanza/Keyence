@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class product_mnt : Form
+    {
+        public product_mnt()
+        {
+            InitializeComponent();
+        }
+        DataTable dt;
+        BindingSource bind;
+        private void product_mnt_Load(object sender, EventArgs e)
+        {
+            _loadProducts();
+        }
+        private void _loadProducts()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("SELECT productID, rtrim(productName) as productName, rtrim(updatedBy) as updatedBy, "+
+                    "rtrim(updatedByName) as updatedByName, datetimeUpdated FROM tbl_web_products", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                bind = new BindingSource();
+                bind.DataSource = dt;
+                data.DataSource = dt;
+
+                data.Columns["productID"].HeaderText = "ID";
+                data.Columns["productName"].HeaderText = "Product Name";
+                data.Columns["updatedBy"].HeaderText = "Updated By";
+                data.Columns["updatedByName"].HeaderText = "Updated By Name";
+                data.Columns["datetimeUpdated"].HeaderText = "Date & Time Updated";
+
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error on loading products! Please contact administrator! \nDetails: "+ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                txt_status.Text = data.Rows.Count.ToString() + " row(s) found!";
+            }
+            else
+            {
+                txt_status.Text="0 rows found!";
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            string txt2search = txt_search.Text.Replace("'","''").Replace("[", "");
+            bind.Filter = "productName like '%"+txt2search+"%'";
+        }
+
+        private void btn_add_product_Click(object sender, EventArgs e)
+        {
+            new MAINTENANCE.product_mnt_add().ShowDialog();
+            if(MAINTENANCE.product_mnt_add.isUpdated)
+            {
+                _loadProducts();
+                txt_search_TextChanged(sender,e);
+            }
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                foreach(DataGridViewRow row in data.SelectedRows)
+                {
+                    new MAINTENANCE.product_mnt_edit(row.Cells["productID"].Value.ToString(), row.Cells["productName"].Value.ToString()).ShowDialog();
+                    if(MAINTENANCE.product_mnt_edit.isUpdated)
+                    {
+                        _loadProducts();
+                        txt_search_TextChanged(sender, e);
+                    }
+                }
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            _loadProducts();
+            txt_search_TextChanged(sender,e);
+        }
+    }
+}

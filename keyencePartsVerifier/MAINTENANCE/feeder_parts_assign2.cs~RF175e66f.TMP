@@ -1,0 +1,142 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using keyencePartsVerifier.MODELS;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class feeder_parts_assign2 : Form
+    {
+        public feeder_parts_assign2()
+        {
+            InitializeComponent();
+        }
+        transDataContext context = new transDataContext();
+        bool isLoaded = false;
+        private void feeder_parts_assign2_Load(object sender, EventArgs e)
+        {
+            //_loadPartsAssignment();
+            _model();
+            _line();
+            _machine();
+            _table();
+            _parts();
+            
+        }
+
+        private void _loadPartsAssignment()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       join x in context.tbl_users_rights on z.updatedByUser equals x.userName
+                       select new
+                       {
+                           z.mnt_id,
+                           z.modelName,
+                           z.lineName,
+                           z.machineName,
+                           z.tableName,
+                           z.feederLocation,
+                           z.partsName,
+                           z.dateUpdated,
+                           z.updatedByUser,
+                           Name = x.lastName.Trim() + ", " + x.firstName
+                       }).OrderBy(m => m.mnt_id).ToList();
+            data.DataSource = tbl;
+        }
+        private void _model()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z.modelName.Trim()).Distinct();
+            cb_model.DataSource = tbl;
+        }
+        private void _line()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z.lineName.Trim()).Distinct();
+            cb_line.DataSource = tbl;
+        }
+        private void _machine()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z.machineName.Trim()).Distinct();
+            cb_machine.DataSource = tbl;
+        }
+        private void _table()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z.tableName.Trim()).Distinct();
+            cb_table.DataSource = tbl;
+        }
+        private void _parts()
+        {
+            var tbl = (from z in context.tbl_web2_maintenances
+                       select z.partsName.Trim()).Distinct();
+            cb_parts.DataSource = tbl;
+            isLoaded = true;
+            cb_line.ResetText();
+            cb_machine.ResetText();
+            cb_model.ResetText();
+            cb_parts.ResetText();
+            cb_table.ResetText();
+        }
+        private void _filterData(object sender, EventArgs e)
+        {
+            if (isLoaded)
+            {
+                var tbl = (from z in context.tbl_web2_maintenances
+                           join x in context.tbl_users_rights on z.updatedByUser equals x.userName
+                           where z.lineName.Contains(cb_line.Text.Trim()) & z.machineName.Contains(cb_machine.Text.Trim()) & z.modelName.Contains(cb_model.Text.Trim()) & z.partsName.Contains(cb_parts.Text.Trim()) & z.tableName.Contains(cb_table.Text.Trim())
+                           select new
+                           {
+                               z.mnt_id,
+                               z.modelName,
+                               z.lineName,
+                               z.machineName,
+                               z.tableName,
+                               z.feederLocation,
+                               z.partsName,
+                               z.dateUpdated,
+                               z.updatedByUser,
+                               Name = x.lastName.Trim() + ", " + x.firstName
+                           }).OrderBy(m => m.mnt_id).ToList();
+                data.DataSource = tbl;
+            }
+        }
+        private void _columnHeader()
+        {
+            data.Columns["mnt_id"].Visible = false;
+            data.Columns["lineName"].HeaderText = "Line";
+            data.Columns["tableName"].HeaderText = "Line";
+            data.Columns["machineName"].HeaderText = "Line";
+            data.Columns["lineName"].HeaderText = "Line";
+            data.Columns["lineName"].HeaderText = "Line";
+            data.Columns["lineName"].HeaderText = "Line";
+            data.Columns["tableName"].Visible = false;
+            data.Columns["machineName"].Visible = false;
+            data.Columns["modelName"].Visible = false;
+            data.Columns["inspector"].Visible = false;
+            data.Columns["type"].HeaderText = "Scan Type";
+            data.Columns["feederLocation"].HeaderText = "Feeder Location";
+            data.Columns["partsName"].HeaderText = "Parts (RINKS)";
+            data.Columns["remarks"].HeaderText = "Remarks";
+            data.Columns["emp_name"].HeaderText = "Inspector";
+            data.Columns["dt_trans"].HeaderText = "Date & Time";
+            data.Columns["type"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            data.Columns["dt_trans"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender, e, this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            txt_status.Text = data.Rows.Count.ToString()+" row(s) found!";
+        }
+    }
+}

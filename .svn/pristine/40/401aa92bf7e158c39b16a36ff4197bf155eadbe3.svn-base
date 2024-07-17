@@ -1,0 +1,152 @@
+﻿namespace keyencePartsVerifier.MAINTENANCE
+{
+    partial class uploadExcel_TransferToHistory
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uploadExcel_TransferToHistory));
+            this.data = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_transfer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.txt_status = new System.Windows.Forms.ToolStripLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // data
+            // 
+            this.data.AllowUserToAddRows = false;
+            this.data.AllowUserToDeleteRows = false;
+            this.data.AllowUserToResizeRows = false;
+            this.data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.data.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.data.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.data.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.data.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.data.ColumnHeadersHeight = 40;
+            this.data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.data.DefaultCellStyle = dataGridViewCellStyle2;
+            this.data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.data.EnableHeadersVisualStyles = false;
+            this.data.Location = new System.Drawing.Point(0, 0);
+            this.data.MultiSelect = false;
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.data.RowTemplate.Height = 30;
+            this.data.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.data.Size = new System.Drawing.Size(678, 578);
+            this.data.TabIndex = 75;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.DarkCyan;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_transfer,
+            this.toolStripProgressBar1,
+            this.txt_status});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(1);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(678, 31);
+            this.toolStrip1.TabIndex = 76;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btn_transfer
+            // 
+            this.btn_transfer.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_transfer.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btn_transfer.Image = ((System.Drawing.Image)(resources.GetObject("btn_transfer.Image")));
+            this.btn_transfer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_transfer.Margin = new System.Windows.Forms.Padding(1, 2, 1, 5);
+            this.btn_transfer.Name = "btn_transfer";
+            this.btn_transfer.Padding = new System.Windows.Forms.Padding(1, 0, 1, 1);
+            this.btn_transfer.Size = new System.Drawing.Size(95, 24);
+            this.btn_transfer.Text = "For History";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 28);
+            // 
+            // txt_status
+            // 
+            this.txt_status.ForeColor = System.Drawing.Color.White;
+            this.txt_status.Name = "txt_status";
+            this.txt_status.Size = new System.Drawing.Size(51, 28);
+            this.txt_status.Text = "Ready";
+            // 
+            // uploadExcel_TransferToHistory
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(678, 578);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.data);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "uploadExcel_TransferToHistory";
+            this.Text = "Transferring to history. . .";
+            this.Load += new System.EventHandler(this.uploadExcel_TransferToHistory_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView data;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btn_transfer;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripLabel txt_status;
+    }
+}

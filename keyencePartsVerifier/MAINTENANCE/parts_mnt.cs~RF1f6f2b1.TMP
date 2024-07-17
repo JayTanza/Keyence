@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace keyencePartsVerifier.MAINTENANCE
+{
+    public partial class parts_mnt : Form
+    {
+        public parts_mnt()
+        {
+            InitializeComponent();
+        }
+        DataTable dt;
+        BindingSource bind;
+        private void parts_mnt_Load(object sender, EventArgs e)
+        {
+            _loadParts();
+        }
+        private void _loadParts()
+        {
+            try
+            {
+                SqlCommand cmdS = new SqlCommand("select distinct ceit, ceyfup, cedcit, cedcis "+
+                "from kpsapps.rinks21.dbo.mcitap order by ceit", gclass.con);
+                gclass.con.Open();
+                SqlDataAdapter da = new SqlDataAdapter(cmdS);
+                dt = new DataTable();
+                da.Fill(dt);
+                gclass.con.Close();
+
+                bind = new BindingSource();
+                bind.DataSource = dt;
+                data.DataSource = dt;
+
+                data.Columns["ceit"].HeaderText = "RINKS code";
+                data.Columns["ceyfup"].HeaderText = "Date Updated";
+                data.Columns["cedcit"].HeaderText = "Parts Description";
+                data.Columns["cedcis"].HeaderText = "Old Name";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on loading products! Please contact administrator! \nDetails: " + ex.Message,
+                    "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            string txt2search = txt_search.Text.Replace("'", "''").Replace("[", "");
+            bind.Filter = "ceit like '%" + txt2search + "%'";
+        }
+
+        private void data_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gclass._dgvRows(sender,e,this.Font);
+        }
+
+        private void data_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if(data.Rows.Count>0)
+            {
+                txt_status.Text = data.Rows.Count.ToString()+" row(s) found!";
+            }
+            else
+            {
+                txt_status.Text = "0 rows found!";
+            }
+        }
+    }
+}

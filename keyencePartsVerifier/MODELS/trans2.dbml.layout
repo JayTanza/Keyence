@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="trans2">
+  <DataContextMoniker Name="/trans2DataContext" />
+  <nestedChildShapes>
+    <classShape Id="4bcbc1e5-b340-4944-bb65-4aa09247cc9a" absoluteBounds="4.75, 2.25, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/trans2DataContext/tbl_REX_SMTPickingList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f6d5f86-efcc-437a-a317-7a139a9e8534" absoluteBounds="4.765, 2.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
