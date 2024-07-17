@@ -249,7 +249,7 @@ namespace keyencePartsVerifier.TRANSACTION
                     data.Columns["type"].HeaderText = "Scan Type";
                     data.Columns["SPL_ModelNo"].HeaderText = "Model No."; //added by Jay Tanza 09/07/2024
                     data.Columns["SPL_Series"].HeaderText = "Model Name"; //added by Jay Tanza 09/07/2024
-                    data.Columns["SPL_LotNo"].HeaderText = "ProdLot No."; //added by Jay Tanza 06/06/2024
+                    data.Columns["SPL_LotNo"].HeaderText = "ProdLot No."; //added by Jay Tanza 06/06/2024/
                     data.Columns["SPL_Status"].HeaderText = "Status"; //added by Jay Tanza 09/07/2024//
                     //data.Columns["CGITCH"].HeaderText = "Parts Names"; 
                     data.Columns["lotNo"].HeaderText = "Lot No.";
