@@ -257,7 +257,7 @@ namespace keyencePartsVerifier.TRANSACTION
 
                     data.Columns["SPL_Status"].HeaderText = "Status"; //added by Jay Tanza 09/07/2024/
 
-                    data.Columns["SPL_Status"].HeaderText = "Status"; //added by Jay Tanza 09/07/2024/
+                    data.Columns["SPL_Status"].HeaderText = "Status"; //added by Jay Tanza 09/07/2024
 
                     //data.Columns["CGITCH"].HeaderText = "Parts Names"; 
                     data.Columns["lotNo"].HeaderText = "Lot No.";
