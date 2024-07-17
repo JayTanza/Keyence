@@ -232,6 +232,7 @@ namespace keyencePartsVerifier.TRANSACTION
 
         private void _columnHeader()        
         {
+            //commit 12
             //commit 11
             //commit 10
             //commit 9
